@@ -278,7 +278,7 @@
         // 현재 언어 상태 전역 변수 ('ko' 또는 'en')
         let currentLang = 'ko';
 
-        // 언어 전환 함수
+        // 언어 전환 함수 (수정본)
         function toggleLanguage(lang) {
             currentLang = lang;
             const elements = document.querySelectorAll('[data-kr]');
@@ -286,14 +286,33 @@
             elements.forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
                 if (text !== null) {
-                    // HTML 태그(<br> 등)가 포함된 경우 innerHTML로 처리
-                    if (text.includes('<') || text.includes('&copy;')) {
-                        el.innerHTML = text;
-                    } else {
-                        el.innerText = text;
-                    }
+                    // innerHTML을 사용하여 <br> 등 HTML 태그도 정상 복원
+                    el.innerHTML = text;
                 }
             });
+
+            // 버튼 스타일 업데이트 (PC 및 모바일)
+            const koBtns = [document.getElementById('btn-ko'), document.getElementById('m-btn-ko')];
+            const enBtns = [document.getElementById('btn-en'), document.getElementById('m-btn-en')];
+
+            koBtns.forEach(btn => {
+                if(!btn) return;
+                if (lang === 'ko') {
+                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white" : "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
+                } else {
+                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600" : "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
+                }
+            });
+
+            enBtns.forEach(btn => {
+                if(!btn) return;
+                if (lang === 'en') {
+                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white" : "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
+                } else {
+                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600" : "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
+                }
+            });
+        }
 
             // 버튼 스타일 업데이트 (PC 및 모바일)
             const koBtns = [document.getElementById('btn-ko'), document.getElementById('m-btn-ko')];
