@@ -275,10 +275,8 @@
 
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // 현재 언어 상태 전역 변수 ('ko' 또는 'en')
         let currentLang = 'ko';
 
-        // 언어 전환 함수 (수정본)
         function toggleLanguage(lang) {
             currentLang = lang;
             const elements = document.querySelectorAll('[data-kr]');
@@ -286,12 +284,10 @@
             elements.forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
                 if (text !== null) {
-                    // innerHTML을 사용하여 <br> 등 HTML 태그도 정상 복원
                     el.innerHTML = text;
                 }
             });
 
-            // 버튼 스타일 업데이트 (PC 및 모바일)
             const koBtns = [document.getElementById('btn-ko'), document.getElementById('m-btn-ko')];
             const enBtns = [document.getElementById('btn-en'), document.getElementById('m-btn-en')];
 
@@ -314,30 +310,6 @@
             });
         }
 
-            // 버튼 스타일 업데이트 (PC 및 모바일)
-            const koBtns = [document.getElementById('btn-ko'), document.getElementById('m-btn-ko')];
-            const enBtns = [document.getElementById('btn-en'), document.getElementById('m-btn-en')];
-
-            koBtns.forEach(btn => {
-                if(!btn) return;
-                if (lang === 'ko') {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white" : "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
-                } else {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600" : "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
-                }
-            });
-
-            enBtns.forEach(btn => {
-                if(!btn) return;
-                if (lang === 'en') {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white" : "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
-                } else {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600" : "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
-                }
-            });
-        }
-
-        // 탭 전환 함수
         function switchTab(tabId) {
             const tabs = ['home', 'units', 'booking', 'qa', 'admin'];
             tabs.forEach(t => {
@@ -377,7 +349,6 @@
             }
         }
 
-        // 방문 예약 저장 로직
         async function handleReservation(event) {
             event.preventDefault();
             const name = document.getElementById('res-name').value;
@@ -399,7 +370,6 @@
             }
         }
 
-        // 문의 등록 모달 열기/닫기
         function openInquiryModal() {
             document.getElementById('inquiry-modal').classList.remove('hidden');
         }
@@ -407,7 +377,6 @@
             document.getElementById('inquiry-modal').classList.add('hidden');
         }
 
-        // Q&A 등록 로직
         async function handleInquiry(event) {
             event.preventDefault();
             const title = document.getElementById('inq-title').value;
@@ -430,7 +399,6 @@
             }
         }
 
-        // Q&A 목록 불러오기 (사용자용)
         async function loadInquiries() {
             const listEl = document.getElementById('inquiry-list');
             listEl.innerHTML = `<div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center">${currentLang === 'en' ? 'Loading...' : '불러오는 중...'}</div>`;
@@ -475,7 +443,6 @@
             }).join('');
         }
 
-        // --- 관리자 모드 관련 함수 ---
         function openAdminLoginModal() {
             document.getElementById('admin-login-modal').classList.remove('hidden');
         }
@@ -513,7 +480,6 @@
             }
         }
 
-        // 관리자: 예약 목록 불러오기 및 삭제
         async function loadAdminReservations() {
             const pane = document.getElementById('admin-reservations-pane');
             if(!pane) return;
@@ -557,7 +523,6 @@
             }
         }
 
-        // 관리자: Q&A 목록 불러오기 및 답변 저장
         async function loadAdminInquiries() {
             const pane = document.getElementById('admin-inquiries-pane');
             if(!pane) return;
@@ -628,7 +593,6 @@
             }
         }
 
-        // HTML 특수문자 이스케이프 함수 (XSS 방지)
         function escapeHtml(str) {
             if (!str) return '';
             return str.replace(/[&<>'"]/g, 
