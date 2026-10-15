@@ -23,6 +23,7 @@
             <nav class="hidden md:flex space-x-6 text-stone-600 font-medium items-center">
                 <button onclick="switchTab('home')" id="nav-home" class="transition hover:text-amber-800 pb-1 border-b-2 border-amber-800" data-kr="홈" data-en="Home">홈</button>
                 <button onclick="switchTab('units')" id="nav-units" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="평면도 및 가격" data-en="Floor Plans & Rates">평면도 및 가격</button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="bg-amber-800 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition hover:bg-amber-900 shadow-sm" data-kr="연락처 및 위치" data-en="Contact Us">Contact Us</button>
                 <button onclick="switchTab('booking')" id="nav-booking" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="방문 예약" data-en="Book Visit">방문 예약</button>
                 <button onclick="switchTab('qa')" id="nav-qa" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="Q&A" data-en="Q&A">Q&A</button>
                 <button onclick="openAdminLoginModal()" id="nav-admin" class="bg-stone-800 text-white text-xs px-3 py-1.5 rounded-lg transition hover:bg-stone-700" data-kr="🔒 관리자 모드" data-en="🔒 Admin Mode">🔒 관리자 모드</button>
@@ -38,6 +39,7 @@
         <div class="md:hidden flex justify-around border-t border-stone-100 py-3 bg-stone-50 text-xs font-medium text-stone-600 items-center">
             <button onclick="switchTab('home')" id="m-nav-home" class="text-amber-800 font-bold" data-kr="홈" data-en="Home">홈</button>
             <button onclick="switchTab('units')" id="m-nav-units" data-kr="평면도" data-en="Plans">평면도</button>
+            <button onclick="switchTab('contact')" id="m-nav-contact" data-kr="연락처" data-en="Contact">연락처</button>
             <button onclick="switchTab('booking')" id="m-nav-booking" data-kr="예약" data-en="Book">예약</button>
             <button onclick="switchTab('qa')" id="m-nav-qa">Q&A</button>
             <button onclick="openAdminLoginModal()" class="text-stone-900 font-bold bg-stone-200 px-2 py-1 rounded" data-kr="관리자" data-en="Admin">관리자</button>
@@ -100,7 +102,7 @@
                         <span class="text-xs bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-full">Standard Type</span>
                         <h3 class="text-xl font-bold" data-kr="스튜디오, 침실 1개/ 욕실 1개" data-en="Studio, 1 Bed / 1 Bath">스튜디오, 침실 1개/ 욕실 1개</h3>
                         <p class="text-sm text-stone-600" data-kr="독립적인 원룸 구조로 동선이 편리하며 아늑한 휴식 공간을 제공합니다." data-en="An independent studio layout with convenient circulation providing a cozy relaxing space.">독립적인 원룸 구조로 동선이 편리하며 아늑한 휴식 공간을 제공합니다.</p>
-                        <div class="text-2xl font-bold text-stone-900 pt-2"><span data-kr="$2,100 / $2,395" data-en="$2,100 / $2,395">$2,100 / $2,395</span> <span class="text-xs text-stone-500 font-normal" data-kr="보증금 별도" data-en="Deposit excluded">보증금 별도</span></div>
+                        <div class="text-2xl font-bold text-stone-900 pt-2"><span data-kr="$2,100 ~ $2,395" data-en="$2,100 ~ $2,395">$2,100 ~ $2,395</span> <span class="text-xs text-stone-500 font-normal" data-kr="보증금 별도" data-en="Deposit excluded">보증금 별도</span></div>
                     </div>
                     <div class="bg-stone-50 px-6 py-4 border-t border-stone-100 flex justify-between items-center text-sm">
                         <span class="text-stone-600" data-kr="500 SF, 600 SF" data-en="500 SF, 600 SF">500 SF, 600 SF</span>
@@ -137,11 +139,92 @@
             </div>
         </section>
 
-        <!-- 3. 방문 & 상담 예약 -->
+        <!-- 3. 연락처 및 위치 (Contact Us) -->
+        <section id="tab-contact" class="hidden max-w-4xl mx-auto space-y-8">
+            <div class="text-center max-w-xl mx-auto">
+                <h2 class="text-3xl font-bold text-stone-900 mb-2" data-kr="연락처 및 위치 안내" data-en="Contact Us & Location">연락처 및 위치 안내</h2>
+                <p class="text-stone-600 text-sm" data-kr="입주 상담 및 방문 안내를 위해 아래 담당자 또는 주소로 연락 주시기 바랍니다." data-en="Please contact our representatives below or visit us at our address for inquiries.">입주 상담 및 방문 안내를 위해 아래 담당자 또는 주소로 연락 주시기 바랍니다.</p>
+            </div>
+
+            <!-- 담당자 연락처 그리드 -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- 담당자 1 -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-stone-900">윤찬억 <span class="text-sm font-normal text-stone-500">Johnny Yun</span></h3>
+                                <p class="text-xs font-semibold text-amber-800 mt-1" data-kr="분양 및 상담 담당" data-en="Sales & Leasing Representative">분양 및 상담 담당</p>
+                            </div>
+                            <span class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 font-bold text-lg">👤</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2 pt-4 border-t border-stone-100 text-sm">
+                        <div class="flex items-center space-x-2 text-stone-700">
+                            <span class="text-stone-400">📞</span>
+                            <span class="font-medium" data-kr="전화:" data-en="Phone:">전화:</span>
+                            <a href="tel:7133852156" class="text-amber-800 font-semibold hover:underline">713 - 385 - 2156</a>
+                        </div>
+                        <div class="flex items-center space-x-2 text-stone-700">
+                            <span class="text-stone-400">✉️</span>
+                            <span class="font-medium" data-kr="이메일:" data-en="Email:">이메일:</span>
+                            <a href="mailto:Jyrealty@hotmail.com" class="text-stone-800 font-medium hover:underline">Jyrealty@hotmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 담당자 2 -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-stone-900">이태우 <span class="text-sm font-normal text-stone-500">Thomas Lee</span></h3>
+                                <p class="text-xs font-semibold text-amber-800 mt-1" data-kr="분양 및 상담 담당" data-en="Sales & Leasing Representative">분양 및 상담 담당</p>
+                            </div>
+                            <span class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 font-bold text-lg">👤</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2 pt-4 border-t border-stone-100 text-sm">
+                        <div class="flex items-center space-x-2 text-stone-700">
+                            <span class="text-stone-400">📞</span>
+                            <span class="font-medium" data-kr="전화:" data-en="Phone:">전화:</span>
+                            <a href="tel:8326837824" class="text-amber-800 font-semibold hover:underline">832 - 683 - 7824</a>
+                        </div>
+                        <div class="flex items-center space-x-2 text-stone-700">
+                            <span class="text-stone-400">✉️</span>
+                            <span class="font-medium" data-kr="이메일:" data-en="Email:">이메일:</span>
+                            <a href="mailto:Thomas@cmkre.com" class="text-stone-800 font-medium hover:underline">Thomas@cmkre.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오피스 주소 및 지도 보기 -->
+            <div class="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                <div class="flex items-start space-x-3">
+                    <span class="text-2xl">📍</span>
+                    <div class="space-y-1">
+                        <h4 class="font-bold text-lg text-stone-900" data-kr="주소 (Address)" data-en="Address">주소 (Address)</h4>
+                        <p class="text-stone-700 font-medium text-base">12424 Bellaire Blvd. Houston, TX 77072</p>
+                    </div>
+                </div>
+                <div class="pt-2 flex space-x-3">
+                    <a href="https://maps.google.com/?q=12424+Bellaire+Blvd,+Houston,+TX+77072" target="_blank" class="inline-flex items-center space-x-2 bg-amber-800 hover:bg-amber-900 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition shadow-sm">
+                        <span>Google Maps로 보기</span>
+                        <span>&rarr;</span>
+                    </a>
+                    <button onclick="switchTab('booking')" class="inline-flex items-center space-x-2 bg-stone-100 hover:bg-stone-200 text-stone-800 text-sm font-medium px-5 py-2.5 rounded-xl transition" data-kr="방문 예약하기" data-en="Book a Visit">
+                        <span>방문 예약하기</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 방문 & 상담 예약 -->
         <section id="tab-booking" class="hidden max-w-2xl mx-auto space-y-6">
             <div>
                 <h2 class="text-2xl font-bold mb-2" data-kr="방문 및 상담 예약" data-en="Visit & Consultation Booking">방문 및 상담 예약</h2>
-                <p class="text-stone-600" data-kr="직접 방문하시어 시설을 둘러보시고 친절한 일대일 상담을 받아보세요." data-en="Visit in person to tour our facilities and receive a friendly one-on-one consultation.">직접 방문하시어 시설을 둘러보시고 친절한 일대일 상담을 받아보세요.</p>
+                <p class="text-stone-600" data-kr="직접 방문하시어 시설을 둘러보시고 친절한 일대일 상담을 받아보세요." data-en="Visit in person to tour our facilities or reach out for a consultation.">직접 방문하시어 시설을 둘러보시고 친절한 일대일 상담을 받아보세요.</p>
             </div>
             <form id="reservation-form" onsubmit="handleReservation(event)" class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4">
                 <div>
@@ -170,11 +253,11 @@
                     <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="기타 문의사항 (선택)" data-en="Other Inquiries (Optional)">기타 문의사항 (선택)</label>
                     <textarea id="res-memo" rows="3" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="궁금하신 점을 적어주세요."></textarea>
                 </div>
-                <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-medium py-3 rounded-xl transition shadow-md" data-kr="예약 신청 완료" data-en="Complete Booking Application">예약 신청 완료</button>
+                <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-medium py-3 rounded-xl transition shadow-md" data-kr="예약 신청 완료" data-en="Submit Application">예약 신청 완료</button>
             </form>
         </section>
 
-        <!-- 4. Q&A / 질의응답 -->
+        <!-- 5. Q&A / 질의응답 -->
         <section id="tab-qa" class="hidden max-w-3xl mx-auto space-y-6">
             <div class="flex justify-between items-center">
                 <div>
@@ -192,7 +275,7 @@
             </div>
         </section>
 
-        <!-- 5. 관리자 전용 대시보드 탭 -->
+        <!-- 6. 관리자 전용 대시보드 탭 -->
         <section id="tab-admin" class="hidden max-w-4xl mx-auto space-y-8">
             <div class="bg-stone-900 text-white p-6 rounded-2xl flex justify-between items-center">
                 <div>
@@ -311,13 +394,13 @@
         }
 
         function switchTab(tabId) {
-            const tabs = ['home', 'units', 'booking', 'qa', 'admin'];
+            const tabs = ['home', 'units', 'contact', 'booking', 'qa', 'admin'];
             tabs.forEach(t => {
                 const el = document.getElementById(`tab-${t}`);
                 if(el) el.classList.add('hidden');
                 
                 const navBtn = document.getElementById(`nav-${t}`);
-                if(navBtn) {
+                if(navBtn && t !== 'contact') {
                     navBtn.classList.remove('border-amber-800', 'text-amber-800');
                     navBtn.classList.add('border-transparent');
                 }
@@ -331,7 +414,7 @@
             if(targetTab) targetTab.classList.remove('hidden');
 
             const activeNav = document.getElementById(`nav-${tabId}`);
-            if(activeNav) {
+            if(activeNav && tabId !== 'contact') {
                 activeNav.classList.remove('border-transparent');
                 activeNav.classList.add('border-amber-800', 'text-amber-800');
             }
