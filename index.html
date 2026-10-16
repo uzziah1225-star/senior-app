@@ -56,7 +56,7 @@
 
         <!-- 1. 홈 / 시설 및 주요 혜택 카드 블록 -->
         <section id="tab-home" class="space-y-10">
-            <!-- 메인 히어로 배너 (클릭 시 전단지 팝업) -->
+            <!-- 메인 히어로 배너 (클릭 시 일반 전단지 팝업) -->
             <div onclick="openFlyerModal()" class="relative rounded-3xl overflow-hidden bg-stone-900 text-white p-8 md:p-16 flex flex-col justify-center min-h-[380px] shadow-md cursor-pointer hover:shadow-lg transition">
                 <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('hero.jpg')"></div>
                 <div class="relative z-10 max-w-xl space-y-4">
@@ -97,12 +97,12 @@
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 3 -->
-                    <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
+                    <!-- 블록 3: 편의시설 & 아파트형 공간 (PDF 팝업 연동) -->
+                    <div onclick="openFloorPlanModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
                         <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏡</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="편의시설 & 아파트형 공간" data-en="Amenities & Living Space">편의시설 & 아파트형 공간</h3>
-                        <p class="text-xs text-emerald-700 font-semibold mt-1" data-kr="완비된 주방 & 세탁기" data-en="Full Kitchen & Washer Included">완비된 주방 & 세탁기</p>
-                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="넓은 원룸/투룸, 세탁기/건조기, 전기/가스/수도 포함 안내" data-en="Spacious studio & 2-bed units, in-unit washer/dryer, utilities included.">넓은 원룸/투룸, 세탁기/건조기, 전기/가스/수도 포함 안내</p>
+                        <p class="text-xs text-emerald-700 font-semibold mt-1" data-kr="층별 평면도 및 구조 보기" data-en="Floor Plans & Layout">층별 평면도 및 구조 보기</p>
+                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오, 1베드, 2베드 아파트형 공간 평면도 상세 PDF 보기" data-en="Detailed PDF floor plan for studio, 1-bed, and 2-bed units.">스튜디오, 1베드, 2베드 아파트형 공간 평면도 상세 PDF 보기</p>
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
@@ -320,6 +320,27 @@
         </section>
     </main>
 
+    <!-- 평면도 PDF 모달 (floor_plan.pdf) -->
+    <div id="floorplan-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] w-full max-w-4xl flex flex-col">
+            <div class="flex justify-between items-center border-b border-stone-100 pb-3">
+                <h3 class="text-xl font-bold text-stone-900">층별 평면도 및 아파트형 공간 상세 안내</h3>
+                <button type="button" onclick="closeFloorPlanModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
+            </div>
+            <!-- PDF 뷰어 영역 -->
+            <div class="flex-grow w-full h-[70vh]">
+                <iframe src="floor_plan.pdf" class="w-full h-full rounded-lg border border-stone-200" title="Floor Plan PDF"></iframe>
+            </div>
+            <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                <a href="floor_plan.pdf" target="_blank" class="text-xs text-amber-800 font-bold hover:underline">새 창에서 PDF 열기 / 다운로드 &rarr;</a>
+                <div class="flex space-x-3">
+                    <button type="button" onclick="closeFloorPlanModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
+                    <button type="button" onclick="closeFloorPlanModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 입주 스페셜 가격 모달 (price_info.jpg) -->
     <div id="price-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
@@ -327,7 +348,6 @@
                 <h3 class="text-xl font-bold text-stone-900">가격 안내 및 사전 오픈 특별 혜택</h3>
                 <button type="button" onclick="closePriceModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
-            <!-- 새로운 가격 안내 이미지 -->
             <img src="price_info.jpg" alt="Bellaire Pointe Pricing Info" class="w-full h-auto rounded-lg shadow">
             
             <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
@@ -341,10 +361,9 @@
     <div id="flyer-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
-                <h3 class="text-xl font-bold text-stone-900">벨레어 포인트 전단지 안내</h3>
+                <h3 class="text-xl font-bold text-stone-900">벨레어 포인트 상세내용 안내</h3>
                 <button type="button" onclick="closeFlyerModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
-            <!-- 전단지 이미지 -->
             <img src="flyer.jpg" alt="Bellaire Pointe Flyer" class="w-full h-auto rounded-lg shadow">
             
             <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
@@ -488,6 +507,16 @@
                 loadAdminReservations();
                 loadAdminInquiries();
             }
+        }
+
+        // 평면도 PDF 모달 함수
+        function openFloorPlanModal() {
+            const modal = document.getElementById('floorplan-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+        function closeFloorPlanModal() {
+            const modal = document.getElementById('floorplan-modal');
+            if (modal) modal.classList.add('hidden');
         }
 
         // 가격 모달 함수
