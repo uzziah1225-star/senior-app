@@ -56,13 +56,13 @@
 
         <!-- 1. 홈 / 시설 및 주요 혜택 카드 블록 -->
         <section id="tab-home" class="space-y-10">
-            <!-- 메인 히어로 배너 (클릭 시 일반 전단지 팝업) -->
-            <div onclick="openFlyerModal()" class="relative rounded-3xl overflow-hidden bg-stone-900 text-white p-8 md:p-16 flex flex-col justify-center min-h-[380px] shadow-md cursor-pointer hover:shadow-lg transition">
+            <!-- 메인 히어로 배너 (클릭 시 동영상 팝업 플레이) -->
+            <div onclick="openVideoModal()" class="relative rounded-3xl overflow-hidden bg-stone-900 text-white p-8 md:p-16 flex flex-col justify-center min-h-[380px] shadow-md cursor-pointer hover:shadow-lg transition">
                 <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('hero.jpg')"></div>
                 <div class="relative z-10 max-w-xl space-y-4">
                     <span class="text-xs bg-amber-700 text-white px-3 py-1 rounded-full font-medium inline-block" data-kr="아시안 럭셔리 실버타운" data-en="Asian Luxury Senior Living">아시안 럭셔리 실버타운</span>
                     <h1 class="text-3xl md:text-5xl font-bold leading-tight" data-kr="벨레어 포인트<br><span class='text-xl md:text-2xl font-normal text-amber-200'>집처럼 편안하고 가족처럼 대우받는 곳</span>" data-en="Bellaire Pointe<br><span class='text-xl md:text-2xl font-normal text-amber-200'>Feels like home, treated like family</span>">벨레어 포인트<br><span class="text-xl md:text-2xl font-normal text-amber-200">집처럼 편안하고 가족처럼 대우받는 곳</span></h1>
-                    <p class="text-stone-200 text-sm md:text-base" data-kr="전문적인 건강 관리 시스템과 최고급 커뮤니티 시설을 경험해 보세요." data-en="Experience our premium senior living community and dedicated services.">전문적인 건강 관리 시스템과 최고급 커뮤니티 시설을 경험해 보세요.</p>
+                    <p class="text-stone-200 text-sm md:text-base" data-kr="클릭하여 소개 동영상을 시청해 보세요." data-en="Click to watch our introduction video.">클릭하여 소개 동영상을 시청해 보세요.</p>
                     <div class="pt-2 flex space-x-3">
                         <button type="button" onclick="event.stopPropagation(); switchTab('booking')" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-5 py-2.5 rounded-xl transition shadow-md text-sm" data-kr="방문 예약하기" data-en="Book a Visit">방문 예약하기</button>
                         <button type="button" onclick="event.stopPropagation(); switchTab('contact')" class="bg-white/10 hover:bg-white/20 backdrop-blur text-white font-medium px-5 py-2.5 rounded-xl transition border border-white/30 text-sm" data-kr="연락처 및 위치" data-en="Contact Us">연락처 및 위치</button>
@@ -320,6 +320,27 @@
         </section>
     </main>
 
+    <!-- 동영상 재생 모달 (intro_video.mp4) -->
+    <div id="video-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-stone-900 rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-w-4xl w-full flex flex-col">
+            <div class="flex justify-between items-center border-b border-stone-800 pb-3">
+                <h3 class="text-xl font-bold text-white">벨레어 포인트 소개 동영상</h3>
+                <button type="button" onclick="closeVideoModal()" class="text-stone-400 hover:text-white text-2xl font-bold">&times;</button>
+            </div>
+            <!-- 비디오 플레이어 영역 -->
+            <div class="w-full aspect-video bg-black rounded-xl overflow-hidden flex items-center justify-center">
+                <video id="intro-video-player" controls class="w-full h-full object-contain">
+                    <source src="intro_video.mp4" type="video/mp4">
+                    브라우저가 비디오 재생을 지원하지 않습니다.
+                </video>
+            </div>
+            <div class="pt-2 flex justify-end space-x-3">
+                <button type="button" onclick="closeVideoModal()" class="bg-stone-800 hover:bg-stone-700 text-white font-medium px-5 py-2 rounded-xl text-sm transition">닫기</button>
+                <button type="button" onclick="closeVideoModal(); switchTab('booking');" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
+            </div>
+        </div>
+    </div>
+
     <!-- 평면도 PDF 모달 (floor_plan.pdf) -->
     <div id="floorplan-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] w-full max-w-4xl flex flex-col">
@@ -327,7 +348,6 @@
                 <h3 class="text-xl font-bold text-stone-900">층별 평면도 및 아파트형 공간 상세 안내</h3>
                 <button type="button" onclick="closeFloorPlanModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
-            <!-- PDF 뷰어 영역 -->
             <div class="flex-grow w-full h-[70vh]">
                 <iframe src="floor_plan.pdf" class="w-full h-full rounded-lg border border-stone-200" title="Floor Plan PDF"></iframe>
             </div>
@@ -357,7 +377,7 @@
         </div>
     </div>
 
-    <!-- 일반 전단지 모달 (flyer.jpg) -->
+    <!-- 일반 상세내용 모달 (flyer.jpg) -->
     <div id="flyer-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
@@ -509,6 +529,20 @@
             }
         }
 
+        // 동영상 모달 함수
+        function openVideoModal() {
+            const modal = document.getElementById('video-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const player = document.getElementById('intro-video-player');
+            if (player) {
+                player.pause(); // 팝업 닫을 때 동영상 일시정지
+            }
+            if (modal) modal.classList.add('hidden');
+        }
+
         // 평면도 PDF 모달 함수
         function openFloorPlanModal() {
             const modal = document.getElementById('floorplan-modal');
@@ -529,7 +563,7 @@
             if (modal) modal.classList.add('hidden');
         }
 
-        // 전단지 모달 함수
+        // 일반 상세내용 모달 함수
         function openFlyerModal() {
             const modal = document.getElementById('flyer-modal');
             if (modal) modal.classList.remove('hidden');
