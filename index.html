@@ -70,22 +70,22 @@
                 </div>
             </div>
 
-            <!-- 안내 블록 클릭 카드 그리드 (클릭 시 전단지 팝업) -->
+            <!-- 안내 블록 클릭 카드 그리드 -->
             <div>
                 <h2 class="text-xl font-bold text-stone-900 mb-4 flex items-center space-x-2">
                     <span>💡</span>
-                    <span data-kr="주요 안내 및 클릭하여 전단지 보기" data-en="Highlights (Click for Flyer)">주요 안내 및 클릭하여 전단지 보기</span>
+                    <span data-kr="주요 안내 및 클릭하여 상세내용 보기" data-en="Highlights (Click for Details)">주요 안내 및 클릭하여 상세내용 보기</span>
                 </h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                     
-                    <!-- 블록 1 -->
-                    <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 relative overflow-hidden group">
+                    <!-- 블록 1: 입주 스페셜 가격 (가격 안내 이미지 팝업) -->
+                    <div onclick="openPriceModal()" class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl">SPECIAL</div>
                         <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏷️</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="입주 스페셜 가격" data-en="Special Move-in Rates">입주 스페셜 가격</h3>
-                        <p class="text-xs text-amber-800 font-semibold mt-1" data-kr="12월 말까지 적용 혜택" data-en="Valid through Dec">12월 말까지 적용 혜택</p>
-                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오 $2,100부터, 할인 가격 혜택 및 커뮤니티 등록비 안내 보기" data-en="Rates starting at $2,100 with exclusive discounts and fee details.">스튜디오 $2,100부터, 할인 가격 혜택 및 커뮤니티 등록비 안내 보기</p>
-                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="전단지 보기 &rarr;" data-en="View Flyer &rarr;">전단지 보기 &rarr;</span>
+                        <p class="text-xs text-amber-800 font-semibold mt-1" data-kr="사전 오픈 특별 혜택" data-en="Pre-Opening Special Offer">사전 오픈 특별 혜택</p>
+                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오 $2,100부터, 보증금 및 추가 비용 가격표 보기" data-en="Rates starting at $2,100 with deposit and fee details.">스튜디오 $2,100부터, 보증금 및 추가 비용 가격표 보기</p>
+                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
                     <!-- 블록 2 -->
@@ -94,7 +94,7 @@
                         <h3 class="font-bold text-lg text-stone-900" data-kr="한인 전용 50호 특별 확보" data-en="50 Korean Reserved Units">한인 전용 50호 특별 확보</h3>
                         <p class="text-xs text-blue-700 font-semibold mt-1" data-kr="파운더스 스페셜 적용" data-en="Founders Special Offer">파운더스 스페셜 적용</p>
                         <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="우수한 교통 접근성, 문화적 친밀감, 요양 병동 연계 혜택 제공" data-en="Great location, cultural comfort, and nursing care connectivity.">우수한 교통 접근성, 문화적 친밀감, 요양 병동 연계 혜택 제공</p>
-                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="전단지 보기 &rarr;" data-en="View Flyer &rarr;">전단지 보기 &rarr;</span>
+                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
                     <!-- 블록 3 -->
@@ -103,7 +103,7 @@
                         <h3 class="font-bold text-lg text-stone-900" data-kr="편의시설 & 아파트형 공간" data-en="Amenities & Living Space">편의시설 & 아파트형 공간</h3>
                         <p class="text-xs text-emerald-700 font-semibold mt-1" data-kr="완비된 주방 & 세탁기" data-en="Full Kitchen & Washer Included">완비된 주방 & 세탁기</p>
                         <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="넓은 원룸/투룸, 세탁기/건조기, 전기/가스/수도 포함 안내" data-en="Spacious studio & 2-bed units, in-unit washer/dryer, utilities included.">넓은 원룸/투룸, 세탁기/건조기, 전기/가스/수도 포함 안내</p>
-                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="전단지 보기 &rarr;" data-en="View Flyer &rarr;">전단지 보기 &rarr;</span>
+                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
                     <!-- 블록 4 -->
@@ -112,7 +112,7 @@
                         <h3 class="font-bold text-lg text-stone-900" data-kr="맞춤 케어 & 한국어 지원" data-en="Services & Korean Support">맞춤 케어 & 한국어 지원</h3>
                         <p class="text-xs text-purple-700 font-semibold mt-1" data-kr="통역 서비스 & 아침 식사" data-en="Translation & Daily Meals">통역 서비스 & 아침 식사</p>
                         <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="유럽식 조식(월~금), 청소, 병원/쇼핑 교통, 한국어 도우미 및 24시간 응급대응" data-en="Breakfast (M-F), housekeeping, local transport, Korean translation.">유럽식 조식(월~금), 청소, 병원/쇼핑 교통, 한국어 도우미 및 24시간 응급대응</p>
-                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="전단지 보기 &rarr;" data-en="View Flyer &rarr;">전단지 보기 &rarr;</span>
+                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
                 </div>
@@ -133,8 +133,8 @@
                         <h3 class="text-xl font-bold" data-kr="스튜디오 / 침실 1개 (500~600 SF)" data-en="Studio / 1 Bed (500~600 SF)">스튜디오 / 침실 1개 (500~600 SF)</h3>
                         <p class="text-sm text-stone-600" data-kr="독립적인 구조로 동선이 편리하며 아늑한 원룸 및 기본형 주거 공간입니다." data-en="Cozy studio layout providing comfortable circulation and private space.">독립적인 구조로 동선이 편리하며 아늑한 원룸 및 기본형 주거 공간입니다.</p>
                         <div class="pt-2">
-                            <span class="text-xs text-stone-400 line-through block">$2,250 / $2,695</span>
-                            <div class="text-2xl font-bold text-stone-900">$2,100 / $2,395 <span class="text-xs text-stone-500 font-normal" data-kr="월" data-en="/mo">월</span></div>
+                            <span class="text-xs text-stone-400 line-through block">$2,250 ~ $2,695</span>
+                            <div class="text-2xl font-bold text-stone-900">$2,100 ~ $2,395 <span class="text-xs text-stone-500 font-normal" data-kr="월" data-en="/mo">월</span></div>
                         </div>
                     </div>
                     <div class="bg-stone-50 px-6 py-4 border-t border-stone-100 flex justify-between items-center text-sm">
@@ -320,14 +320,31 @@
         </section>
     </main>
 
-    <!-- 전단지 모달 (이미지 팝업) -->
+    <!-- 입주 스페셜 가격 모달 (price_info.jpg) -->
+    <div id="price-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
+            <div class="flex justify-between items-center border-b border-stone-100 pb-3">
+                <h3 class="text-xl font-bold text-stone-900">가격 안내 및 사전 오픈 특별 혜택</h3>
+                <button type="button" onclick="closePriceModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
+            </div>
+            <!-- 새로운 가격 안내 이미지 -->
+            <img src="price_info.jpg" alt="Bellaire Pointe Pricing Info" class="w-full h-auto rounded-lg shadow">
+            
+            <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
+                <button type="button" onclick="closePriceModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
+                <button type="button" onclick="closePriceModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 일반 전단지 모달 (flyer.jpg) -->
     <div id="flyer-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
                 <h3 class="text-xl font-bold text-stone-900">벨레어 포인트 전단지 안내</h3>
                 <button type="button" onclick="closeFlyerModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
-            <!-- 전단지 이미지 (flyer.jpg) -->
+            <!-- 전단지 이미지 -->
             <img src="flyer.jpg" alt="Bellaire Pointe Flyer" class="w-full h-auto rounded-lg shadow">
             
             <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
@@ -473,18 +490,24 @@
             }
         }
 
-        function openFlyerModal() {
-            const modal = document.getElementById('flyer-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-            }
+        // 가격 모달 함수
+        function openPriceModal() {
+            const modal = document.getElementById('price-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+        function closePriceModal() {
+            const modal = document.getElementById('price-modal');
+            if (modal) modal.classList.add('hidden');
         }
 
+        // 전단지 모달 함수
+        function openFlyerModal() {
+            const modal = document.getElementById('flyer-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
         function closeFlyerModal() {
             const modal = document.getElementById('flyer-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-            }
+            if (modal) modal.classList.add('hidden');
         }
 
         async function handleReservation(event) {
