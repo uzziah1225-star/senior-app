@@ -21,31 +21,32 @@
                 <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-medium" data-kr="시니어 독립 주거" data-en="Senior Living">시니어 독립 주거</span>
             </div>
             <nav class="hidden md:flex space-x-6 text-stone-600 font-medium items-center">
-                <button onclick="switchTab('home')" id="nav-home" class="transition hover:text-amber-800 pb-1 border-b-2 border-amber-800" data-kr="홈" data-en="Home">홈</button>
-                <button onclick="switchTab('units')" id="nav-units" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="평면도 및 가격" data-en="Floor Plans & Rates">평면도 및 가격</button>
-                <button onclick="switchTab('booking')" id="nav-booking" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="방문 예약" data-en="Book Visit">방문 예약</button>
-                <button onclick="switchTab('booking')" id="nav-contact" class="bg-amber-800 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition hover:bg-amber-900 shadow-sm" data-kr="문의하기" data-en="Contact Us">Contact Us</button>
-                <button onclick="switchTab('qa')" id="nav-qa" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="Q&A" data-en="Q&A">Q&A</button>
-                <button onclick="openAdminLoginModal()" id="nav-admin" class="bg-stone-800 text-white text-xs px-3 py-1.5 rounded-lg transition hover:bg-stone-700" data-kr="🔒 관리자 모드" data-en="🔒 Admin Mode">🔒 관리자 모드</button>
+                <button type="button" onclick="switchTab('home')" id="nav-home" class="transition hover:text-amber-800 pb-1 border-b-2 border-amber-800" data-kr="홈" data-en="Home">홈</button>
+                <button type="button" onclick="switchTab('units')" id="nav-units" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="평면도 및 가격" data-en="Floor Plans & Rates">평면도 및 가격</button>
+                <button type="button" onclick="switchTab('contact')" id="nav-contact" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="연락처 및 위치" data-en="Contact Us">연락처 및 위치</button>
+                <button type="button" onclick="switchTab('booking')" id="nav-booking" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="방문 예약" data-en="Book Visit">방문 예약</button>
+                <button type="button" onclick="switchTab('qa')" id="nav-qa" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="Q&A" data-en="Q&A">Q&A</button>
+                <button type="button" onclick="openAdminLoginModal()" id="nav-admin" class="bg-stone-800 text-white text-xs px-3 py-1.5 rounded-lg transition hover:bg-stone-700" data-kr="🔒 관리자 모드" data-en="🔒 Admin Mode">🔒 관리자 모드</button>
                 
                 <!-- 언어 전환 버튼 (PC) -->
                 <div class="flex items-center space-x-1 pl-2 border-l border-stone-300">
-                    <button onclick="toggleLanguage('ko')" id="btn-ko" class="px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition">KOR</button>
-                    <button onclick="toggleLanguage('en')" id="btn-en" class="px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition">ENG</button>
+                    <button type="button" onclick="toggleLanguage('ko')" id="btn-ko" class="px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition">KOR</button>
+                    <button type="button" onclick="toggleLanguage('en')" id="btn-en" class="px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition">ENG</button>
                 </div>
             </nav>
         </div>
         <!-- 모바일 네비게이션 -->
         <div class="md:hidden flex justify-around border-t border-stone-100 py-3 bg-stone-50 text-xs font-medium text-stone-600 items-center">
-            <button onclick="switchTab('home')" id="m-nav-home" class="text-amber-800 font-bold" data-kr="홈" data-en="Home">홈</button>
-            <button onclick="switchTab('units')" id="m-nav-units" data-kr="평면도" data-en="Plans">평면도</button>
-            <button onclick="switchTab('booking')" id="m-nav-booking" data-kr="예약/문의" data-en="Contact">예약/문의</button>
-            <button onclick="switchTab('qa')" id="m-nav-qa">Q&A</button>
-            <button onclick="openAdminLoginModal()" class="text-stone-900 font-bold bg-stone-200 px-2 py-1 rounded" data-kr="관리자" data-en="Admin">관리자</button>
+            <button type="button" onclick="switchTab('home')" id="m-nav-home" class="text-amber-800 font-bold" data-kr="홈" data-en="Home">홈</button>
+            <button type="button" onclick="switchTab('units')" id="m-nav-units" data-kr="평면도" data-en="Plans">평면도</button>
+            <button type="button" onclick="switchTab('contact')" id="m-nav-contact" data-kr="연락처" data-en="Contact">연락처</button>
+            <button type="button" onclick="switchTab('booking')" id="m-nav-booking" data-kr="예약" data-en="Book">예약</button>
+            <button type="button" onclick="switchTab('qa')" id="m-nav-qa">Q&A</button>
+            <button type="button" onclick="openAdminLoginModal()" class="text-stone-900 font-bold bg-stone-200 px-2 py-1 rounded" data-kr="관리자" data-en="Admin">관리자</button>
             <!-- 언어 전환 버튼 (모바일) -->
             <div class="flex space-x-1">
-                <button onclick="toggleLanguage('ko')" id="m-btn-ko" class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white">KO</button>
-                <button onclick="toggleLanguage('en')" id="m-btn-en" class="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600">EN</button>
+                <button type="button" onclick="toggleLanguage('ko')" id="m-btn-ko" class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white">KO</button>
+                <button type="button" onclick="toggleLanguage('en')" id="m-btn-en" class="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600">EN</button>
             </div>
         </div>
     </header>
@@ -55,7 +56,7 @@
 
         <!-- 1. 홈 / 시설 및 주요 혜택 카드 블록 -->
         <section id="tab-home" class="space-y-10">
-            <!-- 메인 히어로 배너 (전체 클릭 시 전단지 팝업) -->
+            <!-- 메인 히어로 배너 (클릭 시 전단지 팝업) -->
             <div onclick="openFlyerModal()" class="relative rounded-3xl overflow-hidden bg-stone-900 text-white p-8 md:p-16 flex flex-col justify-center min-h-[380px] shadow-md cursor-pointer hover:shadow-lg transition">
                 <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('hero.jpg')"></div>
                 <div class="relative z-10 max-w-xl space-y-4">
@@ -63,14 +64,13 @@
                     <h1 class="text-3xl md:text-5xl font-bold leading-tight" data-kr="벨레어 포인트<br><span class='text-xl md:text-2xl font-normal text-amber-200'>집처럼 편안하고 가족처럼 대우받는 곳</span>" data-en="Bellaire Pointe<br><span class='text-xl md:text-2xl font-normal text-amber-200'>Feels like home, treated like family</span>">벨레어 포인트<br><span class="text-xl md:text-2xl font-normal text-amber-200">집처럼 편안하고 가족처럼 대우받는 곳</span></h1>
                     <p class="text-stone-200 text-sm md:text-base" data-kr="전문적인 건강 관리 시스템과 최고급 커뮤니티 시설을 경험해 보세요." data-en="Experience our premium senior living community and dedicated services.">전문적인 건강 관리 시스템과 최고급 커뮤니티 시설을 경험해 보세요.</p>
                     <div class="pt-2 flex space-x-3">
-                        <!-- 버튼들은 부모의 클릭 이벤트를 전파하지 않도록 stopPropagation() 추가 -->
-                        <button onclick="event.stopPropagation(); switchTab('booking')" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-5 py-2.5 rounded-xl transition shadow-md text-sm" data-kr="방문 예약하기" data-en="Book a Visit">방문 예약하기</button>
-                        <button onclick="event.stopPropagation(); switchTab('contact')" class="bg-white/10 hover:bg-white/20 backdrop-blur text-white font-medium px-5 py-2.5 rounded-xl transition border border-white/30 text-sm" data-kr="연락처 및 위치" data-en="Contact Us">연락처 및 위치</button>
+                        <button type="button" onclick="event.stopPropagation(); switchTab('booking')" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-5 py-2.5 rounded-xl transition shadow-md text-sm" data-kr="방문 예약하기" data-en="Book a Visit">방문 예약하기</button>
+                        <button type="button" onclick="event.stopPropagation(); switchTab('contact')" class="bg-white/10 hover:bg-white/20 backdrop-blur text-white font-medium px-5 py-2.5 rounded-xl transition border border-white/30 text-sm" data-kr="연락처 및 위치" data-en="Contact Us">연락처 및 위치</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 안내 블록 클릭 카드 그리드 (각 카드 클릭 시 전단지 팝업) -->
+            <!-- 안내 블록 클릭 카드 그리드 (클릭 시 전단지 팝업) -->
             <div>
                 <h2 class="text-xl font-bold text-stone-900 mb-4 flex items-center space-x-2">
                     <span>💡</span>
@@ -78,7 +78,7 @@
                 </h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                     
-                    <!-- 블록 1: 스페셜 입주 가격 (전단지 팝업) -->
+                    <!-- 블록 1 -->
                     <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl">SPECIAL</div>
                         <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏷️</div>
@@ -88,7 +88,7 @@
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="전단지 보기 &rarr;" data-en="View Flyer &rarr;">전단지 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 2: 한인 전용 50호 특별 확보 (전단지 팝업) -->
+                    <!-- 블록 2 -->
                     <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
                         <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🇰🇷</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="한인 전용 50호 특별 확보" data-en="50 Korean Reserved Units">한인 전용 50호 특별 확보</h3>
@@ -97,7 +97,7 @@
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="전단지 보기 &rarr;" data-en="View Flyer &rarr;">전단지 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 3: 편의시설 및 주거 환경 (전단지 팝업) -->
+                    <!-- 블록 3 -->
                     <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
                         <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏡</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="편의시설 & 아파트형 공간" data-en="Amenities & Living Space">편의시설 & 아파트형 공간</h3>
@@ -106,7 +106,7 @@
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="전단지 보기 &rarr;" data-en="View Flyer &rarr;">전단지 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 4: 맞춤형 서비스 & 도우미 (전단지 팝업) -->
+                    <!-- 블록 4 -->
                     <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
                         <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🤝</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="맞춤 케어 & 한국어 지원" data-en="Services & Korean Support">맞춤 케어 & 한국어 지원</h3>
@@ -139,7 +139,7 @@
                     </div>
                     <div class="bg-stone-50 px-6 py-4 border-t border-stone-100 flex justify-between items-center text-sm">
                         <span class="text-stone-600">500 SF / 600 SF</span>
-                        <button onclick="switchTab('booking')" class="text-amber-800 font-bold hover:underline" data-kr="상담 신청 &rarr;" data-en="Apply &rarr;">상담 신청 &rarr;</button>
+                        <button type="button" onclick="switchTab('booking')" class="text-amber-800 font-bold hover:underline" data-kr="상담 신청 &rarr;" data-en="Apply &rarr;">상담 신청 &rarr;</button>
                     </div>
                 </div>
                 <!-- 타입 B -->
@@ -156,7 +156,7 @@
                     </div>
                     <div class="bg-stone-50 px-6 py-4 border-t border-stone-100 flex justify-between items-center text-sm">
                         <span class="text-stone-600">720 SF</span>
-                        <button onclick="switchTab('booking')" class="text-amber-800 font-bold hover:underline" data-kr="상담 신청 &rarr;" data-en="Apply &rarr;">상담 신청 &rarr;</button>
+                        <button type="button" onclick="switchTab('booking')" class="text-amber-800 font-bold hover:underline" data-kr="상담 신청 &rarr;" data-en="Apply &rarr;">상담 신청 &rarr;</button>
                     </div>
                 </div>
                 <!-- 타입 C -->
@@ -172,7 +172,7 @@
                     </div>
                     <div class="bg-stone-50 px-6 py-4 border-t border-stone-100 flex justify-between items-center text-sm">
                         <span class="text-stone-600">970 SF</span>
-                        <button onclick="switchTab('booking')" class="text-amber-800 font-bold hover:underline" data-kr="상담 신청 &rarr;" data-en="Apply &rarr;">상담 신청 &rarr;</button>
+                        <button type="button" onclick="switchTab('booking')" class="text-amber-800 font-bold hover:underline" data-kr="상담 신청 &rarr;" data-en="Apply &rarr;">상담 신청 &rarr;</button>
                     </div>
                 </div>
             </div>
@@ -185,28 +185,22 @@
                 <p class="text-stone-600 text-sm" data-kr="입주 상담 및 방문 안내를 위해 아래 담당자 또는 주소로 연락 주시기 바랍니다." data-en="Please contact our representatives below or visit us at our address for inquiries.">입주 상담 및 방문 안내를 위해 아래 담당자 또는 주소로 연락 주시기 바랍니다.</p>
             </div>
 
-            <!-- 담당자 연락처 그리드 -->
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- 담당자 1 -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div class="space-y-2">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-xl font-bold text-stone-900">윤찬억 <span class="text-sm font-normal text-stone-500">Johnny Yun</span></h3>
-                                <p class="text-xs font-semibold text-amber-800 mt-1" data-kr="분양 및 상담 담당" data-en="Sales & Leasing Representative">분양 및 상담 담당</p>
-                            </div>
-                            <span class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 font-bold text-lg">👤</span>
-                        </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-900">윤찬억 <span class="text-sm font-normal text-stone-500">Johnny Yun</span></h3>
+                        <p class="text-xs font-semibold text-amber-800 mt-1" data-kr="분양 및 상담 담당" data-en="Sales & Leasing Representative">분양 및 상담 담당</p>
                     </div>
                     <div class="space-y-2 pt-4 border-t border-stone-100 text-sm">
                         <div class="flex items-center space-x-2 text-stone-700">
                             <span class="text-stone-400">📞</span>
-                            <span class="font-medium" data-kr="전화:" data-en="Phone:">전화:</span>
+                            <span class="font-medium">전화:</span>
                             <a href="tel:7133852156" class="text-amber-800 font-semibold hover:underline">713 - 385 - 2156</a>
                         </div>
                         <div class="flex items-center space-x-2 text-stone-700">
                             <span class="text-stone-400">✉️</span>
-                            <span class="font-medium" data-kr="이메일:" data-en="Email:">이메일:</span>
+                            <span class="font-medium">이메일:</span>
                             <a href="mailto:Jyrealty@hotmail.com" class="text-stone-800 font-medium hover:underline">Jyrealty@hotmail.com</a>
                         </div>
                     </div>
@@ -214,31 +208,25 @@
 
                 <!-- 담당자 2 -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div class="space-y-2">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-xl font-bold text-stone-900">이태우 <span class="text-sm font-normal text-stone-500">Thomas Lee</span></h3>
-                                <p class="text-xs font-semibold text-amber-800 mt-1" data-kr="분양 및 상담 담당" data-en="Sales & Leasing Representative">분양 및 상담 담당</p>
-                            </div>
-                            <span class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 font-bold text-lg">👤</span>
-                        </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-900">이태우 <span class="text-sm font-normal text-stone-500">Thomas Lee</span></h3>
+                        <p class="text-xs font-semibold text-amber-800 mt-1" data-kr="분양 및 상담 담당" data-en="Sales & Leasing Representative">분양 및 상담 담당</p>
                     </div>
                     <div class="space-y-2 pt-4 border-t border-stone-100 text-sm">
                         <div class="flex items-center space-x-2 text-stone-700">
                             <span class="text-stone-400">📞</span>
-                            <span class="font-medium" data-kr="전화:" data-en="Phone:">전화:</span>
+                            <span class="font-medium">전화:</span>
                             <a href="tel:8326837824" class="text-amber-800 font-semibold hover:underline">832 - 683 - 7824</a>
                         </div>
                         <div class="flex items-center space-x-2 text-stone-700">
                             <span class="text-stone-400">✉️</span>
-                            <span class="font-medium" data-kr="이메일:" data-en="Email:">이메일:</span>
+                            <span class="font-medium">이메일:</span>
                             <a href="mailto:Thomas@cmkre.com" class="text-stone-800 font-medium hover:underline">Thomas@cmkre.com</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 오피스 주소 및 지도 보기 -->
             <div class="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4">
                 <div class="flex items-start space-x-3">
                     <span class="text-2xl">📍</span>
@@ -249,12 +237,8 @@
                 </div>
                 <div class="pt-2 flex space-x-3">
                     <a href="https://maps.google.com/?q=12424+Bellaire+Blvd,+Houston,+TX+77072" target="_blank" class="inline-flex items-center space-x-2 bg-amber-800 hover:bg-amber-900 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition shadow-sm">
-                        <span>Google Maps로 보기</span>
-                        <span>&rarr;</span>
+                        <span>Google Maps로 보기 &rarr;</span>
                     </a>
-                    <button onclick="switchTab('booking')" class="inline-flex items-center space-x-2 bg-stone-100 hover:bg-stone-200 text-stone-800 text-sm font-medium px-5 py-2.5 rounded-xl transition" data-kr="방문 예약하기" data-en="Book a Visit">
-                        <span>방문 예약하기</span>
-                    </button>
                 </div>
             </div>
         </section>
@@ -268,445 +252,3 @@
             <form id="reservation-form" onsubmit="handleReservation(event)" class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="성함 / 보호자명" data-en="Name / Guardian Name">성함 / 보호자명</label>
-                    <input type="text" id="res-name" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="홍길동">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="연락처" data-en="Phone Number">연락처</label>
-                    <input type="tel" id="res-phone" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="010-0000-0000">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="방문 희망일" data-en="Preferred Date">방문 희망일</label>
-                        <input type="date" id="res-date" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="희망 시간" data-en="Preferred Time">희망 시간</label>
-                        <select id="res-time" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700">
-                            <option data-kr="오전 10:00" data-en="10:00 AM">오전 10:00</option>
-                            <option data-kr="오후 02:00" data-en="02:00 PM">오후 02:00</option>
-                            <option data-kr="오후 04:00" data-en="04:00 PM">오후 04:00</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="기타 문의사항 (선택)" data-en="Other Inquiries (Optional)">기타 문의사항 (선택)</label>
-                    <textarea id="res-memo" rows="3" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="궁금하신 점을 적어주세요."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-medium py-3 rounded-xl transition shadow-md" data-kr="예약 신청 완료" data-en="Submit Application">예약 신청 완료</button>
-            </form>
-        </section>
-
-        <!-- 5. Q&A / 질의응답 -->
-        <section id="tab-qa" class="hidden max-w-3xl mx-auto space-y-6">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h2 class="text-2xl font-bold mb-1" data-kr="질의응답 (Q&A)" data-en="Q&A">질의응답 (Q&A)</h2>
-                    <p class="text-stone-600 text-sm" data-kr="입주 조건 및 생활에 대해 궁금하신 점을 확인하거나 직접 문의해 보세요." data-en="Check common questions about residency or submit a direct inquiry.">입주 조건 및 생활에 대해 궁금하신 점을 확인하거나 직접 문의해 보세요.</p>
-                </div>
-                <button onclick="openInquiryModal()" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-4 py-2.5 rounded-xl text-sm transition" data-kr="문의 등록하기" data-en="New Inquiry">문의 등록하기</button>
-            </div>
-
-            <!-- 문의 목록 -->
-            <div id="inquiry-list" class="space-y-4">
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center" data-kr="문의 내용을 불러오는 중..." data-en="Loading inquiries...">
-                    문의 내용을 불러오는 중...
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. 관리자 전용 대시보드 탭 -->
-        <section id="tab-admin" class="hidden max-w-4xl mx-auto space-y-8">
-            <div class="bg-stone-900 text-white p-6 rounded-2xl flex justify-between items-center">
-                <div>
-                    <h2 class="text-2xl font-bold" data-kr="관리자 전용 대시보드" data-en="Admin Dashboard">관리자 전용 대시보드</h2>
-                    <p class="text-stone-400 text-sm" data-kr="방문 예약 신청 내역 확인 및 Q&A 답변 관리를 수행할 수 있습니다." data-en="Manage visit reservation requests and Q&A responses.">방문 예약 신청 내역 확인 및 Q&A 답변 관리를 수행할 수 있습니다.</p>
-                </div>
-                <button onclick="switchTab('home')" class="bg-white/10 hover:bg-white/20 text-white text-xs px-4 py-2 rounded-xl transition" data-kr="일반 화면으로 나가기" data-en="Exit to Public View">일반 화면으로 나가기</button>
-            </div>
-
-            <!-- 관리자 하위 탭 선택 -->
-            <div class="flex space-x-2 border-b border-stone-200 pb-2">
-                <button onclick="switchAdminSubTab('reservations')" id="admin-sub-res" class="px-4 py-2 font-bold text-amber-800 border-b-2 border-amber-800 text-sm" data-kr="방문 예약 관리" data-en="Manage Reservations">방문 예약 관리</button>
-                <button onclick="switchAdminSubTab('inquiries')" id="admin-sub-inq" class="px-4 py-2 text-stone-500 hover:text-stone-800 text-sm" data-kr="Q&A 답변 관리" data-en="Manage Q&A Answers">Q&A 답변 관리</button>
-            </div>
-
-            <!-- 관리자: 예약 관리 목록 -->
-            <div id="admin-reservations-pane" class="space-y-4">
-                <div class="text-stone-500 text-center py-8" data-kr="예약 목록을 불러오는 중..." data-en="Loading reservation list...">예약 목록을 불러오는 중...</div>
-            </div>
-
-            <!-- 관리자: Q&A 관리 목록 -->
-            <div id="admin-inquiries-pane" class="hidden space-y-4">
-                <div class="text-stone-500 text-center py-8" data-kr="Q&A 목록을 불러오는 중..." data-en="Loading Q&A list...">Q&A 목록을 불러오는 중...</div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 전단지 모달 (팍! 뜨는 팝업) -->
-    <div id="flyer-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <!-- 모달 컨텐츠 -->
-        <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
-            <div class="flex justify-between items-center border-b border-stone-100 pb-3">
-                <h3 class="text-xl font-bold text-stone-900" data-kr="벨레어 포인트 전단지 안내" data-en="Bellaire Pointe Flyer Info">벨레어 포인트 전단지 안내</h3>
-                <button onclick="closeFlyerModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
-            </div>
-            <!-- 전단지 이미지 (flyer.jpg 파일 사용) -->
-            <img src="flyer.jpg" alt="Bellaire Pointe Flyer" class="w-full h-auto rounded-lg">
-            
-            <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
-                <button onclick="closeFlyerModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition" data-kr="닫기" data-en="Close">닫기</button>
-                <button onclick="closeFlyerModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition" data-kr="방문 예약하기" data-en="Book Visit">방문 예약하기</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 문의 등록 모달 -->
-    <div id="inquiry-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white max-w-lg w-full rounded-3xl p-6 md:p-8 space-y-6 relative shadow-xl">
-            <h3 class="text-xl font-bold" data-kr="새로운 문의 등록" data-en="New Inquiry Registration">새로운 문의 등록</h3>
-            <form onsubmit="handleInquiry(event)" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="제목" data-en="Title">제목</label>
-                    <input type="text" id="inq-title" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="작성자" data-en="Author">작성자</label>
-                    <input type="text" id="inq-author" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="이름">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-stone-700 mb-1" data-kr="문의 내용" data-en="Content">문의 내용</label>
-                    <textarea id="inq-content" rows="4" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700"></textarea>
-                </div>
-                <div class="flex space-x-3 pt-2">
-                    <button type="button" onclick="closeInquiryModal()" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium py-2.5 rounded-xl transition" data-kr="취소" data-en="Cancel">취소</button>
-                    <button type="submit" class="flex-1 bg-amber-700 hover:bg-amber-800 text-white font-medium py-2.5 rounded-xl transition" data-kr="등록하기" data-en="Submit">등록하기</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- 관리자 로그인 모달 -->
-    <div id="admin-login-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white max-w-sm w-full rounded-3xl p-6 space-y-6 relative shadow-xl">
-            <h3 class="text-xl font-bold" data-kr="관리자 인증" data-en="Admin Authentication">관리자 인증</h3>
-            <p class="text-stone-500 text-xs" data-kr="관리자 전용 페이지에 접속하려면 비밀번호를 입력하세요. (기본 비밀번호: J2026!)" data-en="Enter password to access the admin page. (Default: J2026!)">관리자 전용 페이지에 접속하려면 비밀번호를 입력하세요. (기본 비밀번호: J2026!)</p>
-            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
-                <div>
-                    <input type="password" id="admin-pw" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="비밀번호 입력">
-                </div>
-                <div class="flex space-x-3">
-                    <button type="button" onclick="closeAdminLoginModal()" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium py-2.5 rounded-xl text-sm transition" data-kr="취소" data-en="Cancel">취소</button>
-                    <button type="submit" class="flex-1 bg-stone-900 hover:bg-stone-800 text-white font-medium py-2.5 rounded-xl text-sm transition" data-kr="로그인" data-en="Login">로그인</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- 푸터 -->
-    <footer class="bg-white border-t border-stone-200 mt-16 py-8 text-center text-stone-500 text-sm">
-        <p data-kr="&copy; 2026 Bellaire Pointe 독립 주거. All rights reserved." data-en="&copy; 2026 Bellaire Pointe Independent Senior Living. All rights reserved.">&copy; 2026 Bellaire Pointe 독립 주거. All rights reserved.</p>
-    </footer>
-
-    <!-- Supabase JS SDK CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        const SUPABASE_URL = 'https://kemeedcgjkvvhbpsxxai.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtlbWVlZGNnamt2dmhicHN4eGFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE5ODA4MzEsImV4cCI6MjEwNzU1NjgzMX0.WYFZCaiPcWxwVCg0SKY_dXVNCqDO_Ic3BdMjqUH6vvo';
-
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        let currentLang = 'ko';
-
-        function toggleLanguage(lang) {
-            currentLang = lang;
-            const elements = document.querySelectorAll('[data-kr]');
-
-            elements.forEach(el => {
-                const text = el.getAttribute(`data-${lang}`);
-                if (text !== null) {
-                    el.innerHTML = text;
-                }
-            });
-
-            const koBtns = [document.getElementById('btn-ko'), document.getElementById('m-btn-ko')];
-            const enBtns = [document.getElementById('btn-en'), document.getElementById('m-btn-en')];
-
-            koBtns.forEach(btn => {
-                if(!btn) return;
-                if (lang === 'ko') {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white" : "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
-                } else {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600" : "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
-                }
-            });
-
-            enBtns.forEach(btn => {
-                if(!btn) return;
-                if (lang === 'en') {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white" : "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
-                } else {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600" : "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
-                }
-            });
-        }
-
-        function switchTab(tabId) {
-            const tabs = ['home', 'units', 'contact', 'booking', 'qa', 'admin'];
-            tabs.forEach(t => {
-                const el = document.getElementById(`tab-${t}`);
-                if(el) el.classList.add('hidden');
-                
-                const navBtn = document.getElementById(`nav-${t}`);
-                if(navBtn && t !== 'contact') {
-                    navBtn.classList.remove('border-amber-800', 'text-amber-800');
-                    navBtn.classList.add('border-transparent');
-                }
-                const mNavBtn = document.getElementById(`m-nav-${t}`);
-                if(mNavBtn) {
-                    mNavBtn.classList.remove('text-amber-800', 'font-bold');
-                }
-            });
-
-            const targetTab = document.getElementById(`tab-${tabId}`);
-            if(targetTab) targetTab.classList.remove('hidden');
-
-            const activeNav = document.getElementById(`nav-${tabId}`);
-            if(activeNav && tabId !== 'contact') {
-                activeNav.classList.remove('border-transparent');
-                activeNav.classList.add('border-amber-800', 'text-amber-800');
-            }
-            const activeMNav = document.getElementById(`m-nav-${tabId}`);
-            if(activeMNav) {
-                activeMNav.classList.add('text-amber-800', 'font-bold');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            if (tabId === 'qa') {
-                loadInquiries();
-            } else if (tabId === 'admin') {
-                loadAdminReservations();
-                loadAdminInquiries();
-            }
-        }
-
-        // 전단지 모달 열기 함수
-        function openFlyerModal() {
-            document.getElementById('flyer-modal').classList.remove('hidden');
-        }
-
-        // 전단지 모달 닫기 함수
-        function closeFlyerModal() {
-            document.getElementById('flyer-modal').classList.add('hidden');
-        }
-
-        async function handleReservation(event) {
-            event.preventDefault();
-            const name = document.getElementById('res-name').value;
-            const phone = document.getElementById('res-phone').value;
-            const date = document.getElementById('res-date').value;
-            const time = document.getElementById('res-time').value;
-            const memo = document.getElementById('res-memo').value;
-
-            const { data, error } = await supabaseClient
-                .from('reservations')
-                .insert([{ name, phone, date, time, memo }]);
-
-            if (error) {
-                alert(currentLang === 'en' ? 'Error saving reservation: ' + error.message : '예약 저장 중 오류가 발생했습니다: ' + error.message);
-            } else {
-                alert(currentLang === 'en' ? 'Visit reservation successfully applied!' : '방문 예약이 성공적으로 신청되었습니다!');
-                document.getElementById('reservation-form').reset();
-                switchTab('home');
-            }
-        }
-
-        function openInquiryModal() {
-            document.getElementById('inquiry-modal').classList.remove('hidden');
-        }
-        function closeInquiryModal() {
-            document.getElementById('inquiry-modal').classList.add('hidden');
-        }
-
-        async function handleInquiry(event) {
-            event.preventDefault();
-            const title = document.getElementById('inq-title').value;
-            const author = document.getElementById('inq-author').value;
-            const content = document.getElementById('inq-content').value;
-
-            const { data, error } = await supabaseClient
-                .from('inquiries')
-                .insert([{ title, author, content, status: currentLang === 'en' ? 'Pending' : '답변 대기', answer: '' }]);
-
-            if (error) {
-                alert(currentLang === 'en' ? 'Error registering inquiry: ' + error.message : '문의 등록 중 오류가 발생했습니다: ' + error.message);
-            } else {
-                alert(currentLang === 'en' ? 'Inquiry registered.' : '문의가 등록되었습니다.');
-                closeInquiryModal();
-                document.getElementById('inq-title').value = '';
-                document.getElementById('inq-author').value = '';
-                document.getElementById('inq-content').value = '';
-                loadInquiries();
-            }
-        }
-
-        async function loadInquiries() {
-            const listEl = document.getElementById('inquiry-list');
-            listEl.innerHTML = `<div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center">${currentLang === 'en' ? 'Loading...' : '불러오는 중...'}</div>`;
-
-            const { data, error } = await supabaseClient
-                .from('inquiries')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error) {
-                listEl.innerHTML = `<div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-red-500 text-center">${currentLang === 'en' ? 'Failed to load data.' : '데이터를 불러오지 못했습니다.'}</div>`;
-                return;
-            }
-
-            if (!data || data.length === 0) {
-                listEl.innerHTML = `<div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center">${currentLang === 'en' ? 'No inquiries found. Leave the first inquiry!' : '등록된 문의가 없습니다. 첫 문의를 남겨보세요!'}</div>`;
-                return;
-            }
-
-            listEl.innerHTML = data.map(item => {
-                const isCompleted = item.status === '답변 완료' || item.status === 'Completed';
-                const displayStatus = currentLang === 'en' ? (isCompleted ? 'Completed' : 'Pending') : (item.status || '답변 대기');
-                return `
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs px-2.5 py-1 rounded-full font-medium ${isCompleted ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${escapeHtml(displayStatus)}</span>
-                        <span class="text-xs text-stone-400">${new Date(item.created_at).toLocaleDateString()}</span>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg text-stone-900">${escapeHtml(item.title || '')}</h3>
-                        <p class="text-stone-600 text-sm mt-1 whitespace-pre-wrap">${escapeHtml(item.content || '')}</p>
-                    </div>
-                    <div class="text-xs text-stone-400">${currentLang === 'en' ? 'Author:' : '작성자:'} ${escapeHtml(item.author || (currentLang === 'en' ? 'Anonymous' : '익명'))}</div>
-                    ${item.answer ? `
-                        <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 mt-3 space-y-1">
-                            <div class="text-xs font-bold text-amber-800">${currentLang === 'en' ? 'Facility Manager Answer' : '시설 관리자 답변'}</div>
-                            <p class="text-stone-700 text-sm whitespace-pre-wrap">${escapeHtml(item.answer)}</p>
-                        </div>
-                    ` : ''}
-                </div>
-            `;
-            }).join('');
-        }
-
-        function openAdminLoginModal() {
-            document.getElementById('admin-login-modal').classList.remove('hidden');
-        }
-        function closeAdminLoginModal() {
-            document.getElementById('admin-login-modal').classList.add('hidden');
-            document.getElementById('admin-pw').value = '';
-        }
-        function handleAdminLogin(event) {
-            event.preventDefault();
-            const pw = document.getElementById('admin-pw').value;
-            if (pw === 'J2026!') { 
-                closeAdminLoginModal();
-                switchTab('admin');
-            } else {
-                alert(currentLang === 'en' ? 'Incorrect password.' : '비밀번호가 올바르지 않습니다.');
-            }
-        }
-
-        function switchAdminSubTab(subType) {
-            const resPane = document.getElementById('admin-reservations-pane');
-            const inqPane = document.getElementById('admin-inquiries-pane');
-            const resBtn = document.getElementById('admin-sub-res');
-            const inqBtn = document.getElementById('admin-sub-inq');
-
-            if (subType === 'reservations') {
-                resPane.classList.remove('hidden');
-                inqPane.classList.add('hidden');
-                resBtn.className = "px-4 py-2 font-bold text-amber-800 border-b-2 border-amber-800 text-sm";
-                inqBtn.className = "px-4 py-2 text-stone-500 hover:text-stone-800 text-sm";
-            } else {
-                resPane.classList.add('hidden');
-                inqPane.classList.remove('hidden');
-                inqBtn.className = "px-4 py-2 font-bold text-amber-800 border-b-2 border-amber-800 text-sm";
-                resBtn.className = "px-4 py-2 text-stone-500 hover:text-stone-800 text-sm";
-            }
-        }
-
-        async function loadAdminReservations() {
-            const pane = document.getElementById('admin-reservations-pane');
-            if(!pane) return;
-            pane.innerHTML = `<div class="text-stone-500 text-center py-8">${currentLang === 'en' ? 'Loading...' : '불러오는 중...'}</div>`;
-
-            const { data, error } = await supabaseClient
-                .from('reservations')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error) {
-                pane.innerHTML = `<div class="text-red-500 text-center py-8">${currentLang === 'en' ? 'Failed to load reservations.' : '예약 내역을 불러오지 못했습니다.'}</div>`;
-                return;
-            }
-
-            if (!data || data.length === 0) {
-                pane.innerHTML = `<div class="bg-white p-8 rounded-2xl border border-stone-200 text-center text-stone-500">${currentLang === 'en' ? 'No visit reservations received.' : '접수된 방문 예약이 없습니다.'}</div>`;
-                return;
-            }
-
-            pane.innerHTML = data.map(item => `
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    <div class="space-y-1">
-                        <div class="flex items-center space-x-2">
-                            <span class="font-bold text-lg">${escapeHtml(item.name || '')}</span>
-                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-medium">${escapeHtml(item.time || '')}</span>
-                        </div>
-                        <p class="text-sm text-stone-600">${currentLang === 'en' ? 'Phone:' : '연락처:'} <a href="tel:${escapeHtml(item.phone || '')}" class="text-amber-800 font-medium underline">${escapeHtml(item.phone \vert{}\vert{} '')}</a> \vert{}${currentLang === 'en' ? 'Date:' : '희망일:'} ${escapeHtml(item.date \vert{}\vert{} '')}</p>${item.memo ? `<p class="text-xs text-stone-500 bg-stone-50 p-2 rounded mt-1">${currentLang === 'en' ? 'Memo:' : '메모:'} ${escapeHtml(item.memo)}</p>` : ''}
-                    </div>
-                    <button type="button" onclick="deleteReservation('${item.id}')" class="bg-red-50 hover:bg-red-100 text-red-600 text-xs px-3 py-2 rounded-xl transition font-medium">${currentLang === 'en' ? 'Delete' : '예약 삭제'}</button>
-                </div>
-            `).join('');
-        }
-
-        async function deleteReservation(id) {
-            if (confirm(currentLang === 'en' ? 'Are you sure you want to delete this reservation?' : '해당 예약 내역을 삭제하시겠습니까?')) {
-                const { error } = await supabaseClient.from('reservations').delete().eq('id', id);
-                if (error) alert((currentLang === 'en' ? 'Delete failed: ' : '삭제 실패: ') + error.message);
-                else loadAdminReservations();
-            }
-        }
-
-        async function loadAdminInquiries() {
-            const pane = document.getElementById('admin-inquiries-pane');
-            if(!pane) return;
-            pane.innerHTML = `<div class="text-stone-500 text-center py-8">${currentLang === 'en' ? 'Loading...' : '불러오는 중...'}</div>`;
-
-            const { data, error } = await supabaseClient
-                .from('inquiries')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error) {
-                pane.innerHTML = `<div class="text-red-500 text-center py-8">Q&A 내역을 불러오지 못했습니다: ${error.message}</div>`;
-                return;
-            }
-
-            if (!data || data.length === 0) {
-                pane.innerHTML = `<div class="bg-white p-8 rounded-2xl border border-stone-200 text-center text-stone-500">${currentLang === 'en' ? 'No inquiries registered.' : '등록된 문의가 없습니다.'}</div>`;
-                return;
-            }
-
-            pane.innerHTML = data.map(item => {
-                const isCompleted = item.status === '답변 완료' || item.status === 'Completed';
-                const displayStatus = currentLang === 'en' ? (isCompleted ? 'Completed' : 'Pending') : (item.status || '답변 대기');
-                return `
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs px-2.5 py-1 rounded-full font-medium ${isCompleted ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${escapeHtml(displayStatus)}</span>
-                        <span class="text-xs text-stone-400">${currentLang === 'en' ? 'Author:' : '작성자:'} ${escapeHtml(item.author || '익명')}</span>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-stone-900">${escapeHtml(item.title || '')}</h4>
-                        <p class="text-stone-600 text-sm mt-1 whitespace-pre-wrap">${escapeHtml(item.content || '')}</p>
-                    </div>
-                    <div class="pt-2 border-t border-stone-100 space-y-2">
-                        <label class="block text-xs font-medium text-stone-700">${currentLang === 'en' ? 'Write Answer' : '관리자 답변 작성'}</label>
-                        <textarea id="answer-${item.id}" rows="2" class="w-full px-3 py-2 text-sm rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="${currentLang === 'en' ? 'Enter answer...' : '답변 내용을 입력하세요...'}">${escapeHtml(item.answer || '')}</textarea>
-                        <div class="flex justify-end space-x-2">
-                            <button type="button" onclick="saveAnswer('${item.id}')" class="bg-amber-700 hover:bg-amber-800 text-white text-xs px-4 py-2 rounded-xl transition font-medium">${currentLang === 'en
