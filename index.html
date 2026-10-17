@@ -61,7 +61,11 @@
                 <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('hero.jpg')"></div>
                 <div class="relative z-10 max-w-xl space-y-4">
                     <span class="text-xs bg-amber-700 text-white px-3 py-1 rounded-full font-medium inline-block" data-kr="아시안 럭셔리 실버타운" data-en="Asian Luxury Senior Living">아시안 럭셔리 실버타운</span>
-                    <h1 class="text-3xl md:text-5xl font-bold leading-tight" data-kr="벨레어 포인트<br><span class='text-xl md:text-2xl font-normal text-amber-200'>집처럼 편안하고<br>가족처럼 대우받는 곳</span>" data-en="Bellaire Pointe<br><span class='text-xl md:text-2xl font-normal text-amber-200'>Feels like home, treated like family</span>">벨레어 포인트<br><span class="text-xl md:text-2xl font-normal text-amber-200">집처럼 편안하고<br>가족처럼 대우받는 곳</span></h1>
+                    <h1 class="text-3xl md:text-5xl font-bold leading-tight" 
+                        data-kr="벨레어 포인트<br><span class='text-xl md:text-2xl font-normal text-amber-200'>집처럼 편안하고<br>가족처럼 대우받는 곳</span>" 
+                        data-en="Bellaire Pointe<br><span class='text-xl md:text-2xl font-normal text-amber-200'>Feels like home, treated like family</span>">
+                        벨레어 포인트<br><span class="text-xl md:text-2xl font-normal text-amber-200">집처럼 편안하고<br>가족처럼 대우받는 곳</span>
+                    </h1>
                     <p class="text-stone-200 text-sm md:text-base" data-kr="클릭하여 소개 동영상을 시청해 보세요." data-en="Click to watch our introduction video.">클릭하여 소개 동영상을 시청해 보세요.</p>
                     <div class="pt-2 flex space-x-3">
                         <button type="button" onclick="event.stopPropagation(); switchTab('booking')" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-5 py-2.5 rounded-xl transition shadow-md text-sm" data-kr="방문 예약하기" data-en="Book a Visit">방문 예약하기</button>
@@ -97,12 +101,12 @@
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 3: 편의시설 & 아파트형 공간 (PDF 팝업 연동) -->
+                    <!-- 블록 3: 편의시설 & 아파트형 공간 (이미지 팝업 연동) -->
                     <div onclick="openFloorPlanModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
                         <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏡</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="편의시설 & 아파트형 공간" data-en="Amenities & Living Space">편의시설 & 아파트형 공간</h3>
                         <p class="text-xs text-emerald-700 font-semibold mt-1" data-kr="층별 평면도 및 구조 보기" data-en="Floor Plans & Layout">층별 평면도 및 구조 보기</p>
-                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오, 1베드, 2베드 아파트형 공간 평면도 상세 PDF 보기" data-en="Detailed PDF floor plan for studio, 1-bed, and 2-bed units.">스튜디오, 1베드, 2베드 아파트형 공간 평면도 상세 PDF 보기</p>
+                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오, 1베드, 2베드 아파트형 공간 평면도 이미지 보기" data-en="Detailed floor plan images for studio, 1-bed, and 2-bed units.">스튜디오, 1베드, 2베드 아파트형 공간 평면도 이미지 보기</p>
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
@@ -133,8 +137,8 @@
                         <h3 class="text-xl font-bold" data-kr="스튜디오 / 침실 1개 (500~600 SF)" data-en="Studio / 1 Bed (500~600 SF)">스튜디오 / 침실 1개 (500~600 SF)</h3>
                         <p class="text-sm text-stone-600" data-kr="독립적인 구조로 동선이 편리하며 아늑한 원룸 및 기본형 주거 공간입니다." data-en="Cozy studio layout providing comfortable circulation and private space.">독립적인 구조로 동선이 편리하며 아늑한 원룸 및 기본형 주거 공간입니다.</p>
                         <div class="pt-2">
-                            <span class="text-xs text-stone-400 line-through block">$2,250 / $2,695</span>
-                            <div class="text-2xl font-bold text-stone-900">$2,100 / $2,395 <span class="text-xs text-stone-500 font-normal" data-kr="월" data-en="/mo">월</span></div>
+                            <span class="text-xs text-stone-400 line-through block">$2,250 ~ $2,695</span>
+                            <div class="text-2xl font-bold text-stone-900">$2,100 ~ $2,395 <span class="text-xs text-stone-500 font-normal" data-kr="월" data-en="/mo">월</span></div>
                         </div>
                     </div>
                     <div class="bg-stone-50 px-6 py-4 border-t border-stone-100 flex justify-between items-center text-sm">
@@ -341,22 +345,20 @@
         </div>
     </div>
 
-    <!-- 평면도 PDF 모달 (floor_plan.pdf) -->
+    <!-- 평면도 사진 모달 (floor_plan.jpg) -->
     <div id="floorplan-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] w-full max-w-4xl flex flex-col">
+        <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
-                <h3 class="text-xl font-bold text-stone-900">층별 평면도 및 아파트형 공간 상세 안내</h3>
+                <h3 class="text-xl font-bold text-stone-900">편의시설 및 아파트형 공간 평면도</h3>
                 <button type="button" onclick="closeFloorPlanModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
-            <div class="flex-grow w-full h-[70vh]">
-                <iframe src="floor_plan.pdf" class="w-full h-full rounded-lg border border-stone-200" title="Floor Plan PDF"></iframe>
+            <!-- 이미지 표시 영역 -->
+            <div class="w-full flex items-center justify-center bg-stone-50 rounded-lg p-2">
+                <img src="floor_plan.jpg" alt="Floor Plan" class="w-full h-auto rounded-lg shadow">
             </div>
-            <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
-                <a href="floor_plan.pdf" target="_blank" class="text-xs text-amber-800 font-bold hover:underline">새 창에서 PDF 열기 / 다운로드 &rarr;</a>
-                <div class="flex space-x-3">
-                    <button type="button" onclick="closeFloorPlanModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
-                    <button type="button" onclick="closeFloorPlanModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
-                </div>
+            <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
+                <button type="button" onclick="closeFloorPlanModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
+                <button type="button" onclick="closeFloorPlanModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
             </div>
         </div>
     </div>
@@ -538,12 +540,12 @@
             const modal = document.getElementById('video-modal');
             const player = document.getElementById('intro-video-player');
             if (player) {
-                player.pause(); // 팝업 닫을 때 동영상 일시정지
+                player.pause();
             }
             if (modal) modal.classList.add('hidden');
         }
 
-        // 평면도 PDF 모달 함수
+        // 평면도 사진 모달 함수
         function openFloorPlanModal() {
             const modal = document.getElementById('floorplan-modal');
             if (modal) modal.classList.remove('hidden');
