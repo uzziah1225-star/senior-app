@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bellaire Pointe - 시니어 독립 주거 공간</title>
+    <title class="lang-text" data-ko="Bellaire Pointe - 시니어 독립 주거 공간" data-en="Bellaire Pointe - Senior Independent Living">Bellaire Pointe - 시니어 독립 주거 공간</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,24 +11,33 @@
 <body class="bg-stone-50 text-stone-800 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
 
     <!-- 상단 네비게이션 바 -->
-    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-stone-200">
+    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <!-- 로고 -->
             <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
                 <div class="w-10 h-10 bg-amber-800 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-md">B</div>
                 <span class="text-2xl font-bold tracking-tight text-amber-950">Bellaire Pointe</span>
             </div>
+
+            <!-- 네비게이션 링크 및 언어 토글 -->
             <div class="flex items-center space-x-6">
-                <button onclick="switchTab('home')" class="font-medium text-stone-700 hover:text-amber-800 transition">홈</button>
-                <button onclick="openModal('lifelease-modal')" class="font-medium text-amber-800 hover:text-amber-900 transition">전세 입주 안내</button>
-                <button onclick="switchTab('booking')" class="bg-amber-800 hover:bg-amber-900 text-white px-5 py-2.5 rounded-2xl text-sm font-semibold transition shadow-md shadow-amber-900/10">방문 예약</button>
+                <a href="#home" onclick="switchTab('home')" class="font-medium text-stone-700 hover:text-amber-800 transition lang-text" data-ko="홈" data-en="Home">홈</a>
+                <a href="#features" class="font-medium text-stone-700 hover:text-amber-800 transition lang-text" data-ko="시설 안내" data-en="Features">시설 안내</a>
+                <button onclick="openModal('lifelease-modal')" class="font-medium text-amber-800 hover:text-amber-900 transition lang-text" data-ko="전세 입주 안내" data-en="Life Lease">전세 입주 안내</button>
+                <a href="#booking-section" onclick="switchTab('booking')" class="font-medium text-stone-700 hover:text-amber-800 transition lang-text" data-ko="방문 예약" data-en="Booking">방문 예약</a>
+
+                <!-- 한국어 / 영어 전환 버튼 -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="bg-stone-100 hover:bg-stone-200 text-stone-800 px-3 py-1.5 rounded-xl text-xs font-bold transition border border-stone-300">
+                    EN / 한국어
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- 메인 컨텐츠 영역 -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    <main id="home" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
         
-        <!-- 히어로 배너 (동영상 배경) -->
+        <!-- 히어로 배너 (동영상 배경 유지) -->
         <section class="relative bg-gradient-to-br from-stone-900 via-stone-800 to-amber-950 text-white rounded-3xl overflow-hidden shadow-2xl">
             <div class="relative w-full h-[400px] md:h-[500px]">
                 <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
@@ -38,18 +47,22 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/40 to-transparent flex items-end p-8 md:p-16">
                     <div class="max-w-2xl space-y-4">
                         <span class="inline-block px-4 py-1.5 bg-amber-500/20 text-amber-300 rounded-full text-xs font-semibold tracking-wide border border-amber-500/30">TEXAS HOUSTON</span>
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight lang-text" 
+                            data-ko="집처럼 편안하고<br>가족처럼 대우받는 곳" 
+                            data-en="A place as comfortable as home<br>and treated like family">
                             집처럼 편안하고<br>가족처럼 대우받는 곳
                         </h1>
-                        <p class="text-stone-300 text-base md:text-lg leading-relaxed">
+                        <p class="text-stone-300 text-base md:text-lg leading-relaxed lang-text"
+                           data-ko="휴스턴 벨레어 Pointe 시니어 독립 주거 공간에서 품격 있는 노후와 편안하고 안전한 삶을 시작해 보세요."
+                           data-en="Start your dignified and safe retirement at Bellaire Pointe Senior Independent Living in Houston, Texas.">
                             휴스턴 벨레어 Pointe 시니어 독립 주거 공간에서 품격 있는 노후와 편안하고 안전한 삶을 시작해 보세요.
                         </p>
                         <div class="pt-2 flex flex-wrap gap-4">
                             <button onclick="openModal('lifelease-modal')" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-6 py-3.5 rounded-2xl transition shadow-lg shadow-amber-600/30 flex items-center space-x-2">
-                                <span>전세 입주 계약 (Life Lease) 안내</span>
+                                <span class="lang-text" data-ko="전세 입주 계약 (Life Lease) 안내" data-en="Life Lease Agreement">전세 입주 계약 (Life Lease) 안내</span>
                                 <i class="fas fa-arrow-right text-xs"></i>
                             </button>
-                            <button onclick="switchTab('booking')" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-6 py-3.5 rounded-2xl transition backdrop-blur-sm">
+                            <button onclick="switchTab('booking')" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-6 py-3.5 rounded-2xl transition backdrop-blur-sm lang-text" data-ko="방문 예약하기" data-en="Book a Tour">
                                 방문 예약하기
                             </button>
                         </div>
@@ -59,14 +72,14 @@
         </section>
 
         <!-- 주요 안내 카드 섹션 -->
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section id="features" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- 1. 평면도 안내 -->
             <div class="bg-white p-6 rounded-3xl border border-stone-200/80 shadow-sm hover:shadow-md transition space-y-4 cursor-pointer" onclick="openModal('floorplan-modal')">
                 <div class="w-12 h-12 bg-amber-50 text-amber-800 rounded-2xl flex items-center justify-center text-xl font-bold">
                     <i class="fas fa-ruler-combined"></i>
                 </div>
-                <h3 class="text-xl font-bold text-stone-900">평면도 안내</h3>
-                <p class="text-stone-600 text-sm leading-relaxed">쾌적하고 여유로운 시니어 전용 맞춤형 유닛 구조를 확인하세요.</p>
+                <h3 class="text-xl font-bold text-stone-900 lang-text" data-ko="평면도 안내" data-en="Floor Plan">평면도 안내</h3>
+                <p class="text-stone-600 text-sm leading-relaxed lang-text" data-ko="쾌적하고 여유로운 시니어 전용 맞춤형 유닛 구조를 확인하세요." data-en="Explore spacious and customized floor plans designed for seniors.">쾌적하고 여유로운 시니어 전용 맞춤형 유닛 구조를 확인하세요.</p>
                 <div class="pt-2">
                     <img src="floor_plan.jpg" alt="Floor Plan" class="w-full h-48 object-cover rounded-2xl border border-stone-100 shadow-inner">
                 </div>
@@ -77,10 +90,10 @@
                 <div class="w-12 h-12 bg-amber-800 text-white rounded-2xl flex items-center justify-center text-xl font-bold shadow-md shadow-amber-800/20">
                     <i class="fas fa-file-contract"></i>
                 </div>
-                <h3 class="text-xl font-bold text-amber-950">전세 입주 계약 (Life Lease)</h3>
-                <p class="text-stone-600 text-sm leading-relaxed">자산 가치를 보증받고 안정적으로 거주할 수 있는 대표 입주 옵션입니다.</p>
+                <h3 class="text-xl font-bold text-amber-950 lang-text" data-ko="전세 입주 계약 (Life Lease)" data-en="Life Lease Option">전세 입주 계약 (Life Lease)</h3>
+                <p class="text-stone-600 text-sm leading-relaxed lang-text" data-ko="자산 가치를 보증받고 안정적으로 거주할 수 있는 대표 입주 옵션입니다." data-en="Secure residency option guaranteeing asset value and stable living.">자산 가치를 보증받고 안정적으로 거주할 수 있는 대표 입주 옵션입니다.</p>
                 <div class="pt-2">
-                    <button class="w-full bg-amber-800 hover:bg-amber-900 text-white font-semibold py-3 rounded-2xl transition text-sm shadow-md">
+                    <button class="w-full bg-amber-800 hover:bg-amber-900 text-white font-semibold py-3 rounded-2xl transition text-sm shadow-md lang-text" data-ko="상세설명 보기" data-en="View Details">
                         상세설명 보기
                     </button>
                 </div>
@@ -91,8 +104,8 @@
                 <div class="w-12 h-12 bg-stone-100 text-stone-800 rounded-2xl flex items-center justify-center text-xl font-bold">
                     <i class="fas fa-tags"></i>
                 </div>
-                <h3 class="text-xl font-bold text-stone-900">가격 안내</h3>
-                <p class="text-stone-600 text-sm leading-relaxed">월비용 및 계약조건에 대한 명확하고 합리적인 가이드를 제공합니다.</p>
+                <h3 class="text-xl font-bold text-stone-900 lang-text" data-ko="가격 안내" data-en="Pricing Guide">가격 안내</h3>
+                <p class="text-stone-600 text-sm leading-relaxed lang-text" data-ko="월비용 및 계약조건에 대한 명확하고 합리적인 가이드를 제공합니다." data-en="Clear and reasonable guide on monthly fees and contract terms.">월비용 및 계약조건에 대한 명확하고 합리적인 가이드를 제공합니다.</p>
                 <div class="pt-2">
                     <img src="price_info.jpg" alt="Price Info" class="w-full h-48 object-cover rounded-2xl border border-stone-100 shadow-inner">
                 </div>
@@ -102,14 +115,14 @@
         <!-- 방문 예약 섹션 -->
         <section id="booking-section" class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm space-y-6">
             <div class="max-w-xl space-y-2">
-                <h2 class="text-2xl font-bold text-stone-900">방문 상담 신청</h2>
-                <p class="text-stone-600 text-sm">Bellaire Pointe 단지를 직접 둘러보고 전문 상담원과의 일정을 예약하세요.</p>
+                <h2 class="text-2xl font-bold text-stone-900 lang-text" data-ko="방문 상담 신청" data-en="Schedule a Tour">방문 상담 신청</h2>
+                <p class="text-stone-600 text-sm lang-text" data-ko="Bellaire Pointe 단지를 직접 둘러보고 전문 상담원과의 일정을 예약하세요." data-en="Tour Bellaire Pointe and schedule an appointment with our specialist.">Bellaire Pointe 단지를 직접 둘러보고 전문 상담원과의 일정을 예약하세요.</p>
             </div>
             <form class="grid grid-cols-1 md:grid-cols-2 gap-4" onsubmit="event.preventDefault(); alert('예약 신청이 완료되었습니다.');">
-                <input type="text" placeholder="성함" required class="w-full p-3.5 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-800 text-sm">
-                <input type="tel" placeholder="연락처" required class="w-full p-3.5 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-800 text-sm">
+                <input type="text" placeholder="성함 (Name)" required class="w-full p-3.5 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-800 text-sm">
+                <input type="tel" placeholder="연락처 (Phone)" required class="w-full p-3.5 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-800 text-sm">
                 <input type="date" required class="w-full p-3.5 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-800 text-sm">
-                <button type="submit" class="bg-amber-800 hover:bg-amber-900 text-white font-semibold rounded-xl text-sm transition py-3.5 shadow-md">예약하기</button>
+                <button type="submit" class="bg-amber-800 hover:bg-amber-900 text-white font-semibold rounded-xl text-sm transition py-3.5 shadow-md lang-text" data-ko="예약하기" data-en="Submit Booking">예약하기</button>
             </form>
         </section>
 
@@ -119,23 +132,23 @@
     <div id="lifelease-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 md:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto w-full max-w-xl flex flex-col">
             <div class="flex justify-between items-center border-b border-stone-100 pb-4">
-                <h3 class="text-xl font-bold text-stone-900">전세 입주 계약 (Life Lease Agreement) 안내</h3>
+                <h3 class="text-xl font-bold text-stone-900 lang-text" data-ko="전세 입주 계약 (Life Lease Agreement) 안내" data-en="Life Lease Agreement Guide">전세 입주 계약 (Life Lease Agreement) 안내</h3>
                 <button type="button" onclick="closeModal('lifelease-modal')" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
             <div class="space-y-4 text-stone-600 text-sm leading-relaxed">
-                <p class="font-semibold text-stone-900 text-base">Bellaire Pointe 전세 입주 계약 안내</p>
+                <p class="font-semibold text-stone-900 text-base lang-text" data-ko="Bellaire Pointe 전세 입주 계약의 주요 특징" data-en="Key Features of Bellaire Pointe Life Lease">Bellaire Pointe 전세 입주 계약의 주요 특징</p>
                 <div class="bg-amber-50/50 p-4 rounded-2xl border border-amber-100 space-y-2">
-                    <p class="font-medium text-amber-950">✓ 자산 가치 안전 보장</p>
-                    <p class="text-xs text-amber-900">입주금의 안전성을 확실하게 보장하여 안정적인 삶을 지원합니다.</p>
+                    <p class="font-medium text-amber-950 lang-text" data-ko="✓ 입주금의 자산 가치 안전 보장" data-en="✓ Guaranteed Asset Value">✓ 입주금의 자산 가치 안전 보장</p>
+                    <p class="text-xs text-amber-900 lang-text" data-ko="안전한 보증금 반환 시스템으로 노후 자산을 확실하게 보호합니다." data-en="Secure deposit return system to protect your retirement assets.">안전한 보증금 반환 시스템으로 노후 자산을 확실하게 보호합니다.</p>
                 </div>
                 <div class="bg-stone-50 p-4 rounded-2xl border border-stone-100 space-y-2">
-                    <p class="font-medium text-stone-900">✓ 맞춤형 시니어 라이프케어</p>
-                    <p class="text-xs text-stone-600">다양한 커뮤니티 프로그램과 프리미엄 주거 편의 시설을 이용하실 수 있습니다.</p>
+                    <p class="font-medium text-stone-900 lang-text" data-ko="✓ 안정적인 시니어 독립 주거" data-en="✓ Independent Senior Living">✓ 안정적인 시니어 독립 주거</p>
+                    <p class="text-xs text-stone-600 lang-text" data-ko="편안한 커뮤니티와 프리미엄 주거 편의 시설을 누리실 수 있습니다." data-en="Enjoy a comfortable community and premium residential amenities.">편안한 커뮤니티와 프리미엄 주거 편의 시설을 누리실 수 있습니다.</p>
                 </div>
             </div>
             <div class="pt-4 border-t border-stone-100 flex justify-end space-x-3">
-                <button type="button" onclick="closeModal('lifelease-modal')" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2.5 rounded-xl text-sm transition">닫기</button>
-                <button type="button" onclick="closeModal('lifelease-modal'); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2.5 rounded-xl text-sm transition">방문 예약하기</button>
+                <button type="button" onclick="closeModal('lifelease-modal')" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2.5 rounded-xl text-sm transition lang-text" data-ko="닫기" data-en="Close">닫기</button>
+                <button type="button" onclick="closeModal('lifelease-modal'); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2.5 rounded-xl text-sm transition lang-text" data-ko="방문 예약하기" data-en="Book a Tour">방문 예약하기</button>
             </div>
         </div>
     </div>
@@ -144,7 +157,7 @@
     <div id="floorplan-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3 mb-4">
-                <h3 class="text-lg font-bold text-stone-900">상세 평면도 (Floor Plan)</h3>
+                <h3 class="text-lg font-bold text-stone-900 lang-text" data-ko="상세 평면도 (Floor Plan)" data-en="Detailed Floor Plan">상세 평면도 (Floor Plan)</h3>
                 <button type="button" onclick="closeModal('floorplan-modal')" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
             <div class="w-full flex justify-center bg-stone-50 rounded-xl p-2">
@@ -157,7 +170,7 @@
     <div id="price-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3 mb-4">
-                <h3 class="text-lg font-bold text-stone-900">가격 및 비용 안내 (Price Info)</h3>
+                <h3 class="text-lg font-bold text-stone-900 lang-text" data-ko="가격 및 비용 안내 (Price Info)" data-en="Pricing & Fees Guide">가격 및 비용 안내 (Price Info)</h3>
                 <button type="button" onclick="closeModal('price-modal')" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
             <div class="w-full flex justify-center bg-stone-50 rounded-xl p-2">
@@ -174,8 +187,20 @@
         </div>
     </footer>
 
-    <!-- 자바스크립트 -->
+    <!-- 자바스크립트 (언어 전환 및 모달 기능) -->
     <script>
+        let currentLang = 'ko';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ko' ? 'en' : 'ko';
+            document.querySelectorAll('.lang-text').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+        }
+
         function openModal(modalId) {
             document.getElementById(modalId).classList.remove('hidden');
         }
