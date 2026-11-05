@@ -357,20 +357,21 @@
 
     <!-- 라이프 리스(전세) 계약 모달 (Life Lease Agreement.jpg) -->
     <div id="lifelease-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
-            <div class="flex justify-between items-center border-b border-stone-100 pb-3">
-                <h3 class="text-xl font-bold text-stone-900">전세 입주 계약 (Life Lease Agreement) 안내</h3>
-                <button type="button" onclick="closeLifeLeaseModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
-            </div>
-            <div class="w-full flex items-center justify-center bg-stone-50 rounded-lg p-2">
-                <img src="life_lease.jpg" alt="Life Lease Agreement"> class="w-full h-auto rounded-lg shadow">
-            </div>
-            <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
-                <button type="button" onclick="closeLifeLeaseModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
-                <button type="button" onclick="closeLifeLeaseModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
-            </div>
+    <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
+        <div class="flex justify-between items-center border-b border-stone-100 pb-3">
+            <h3 class="text-xl font-bold text-stone-900">전세 입주 계약 (Life Lease Agreement) 안내</h3>
+            <button type="button" onclick="closeLifeLeaseModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
+        </div>
+        <div class="w-full flex items-center justify-center bg-stone-50 rounded-lg p-2">
+            <!-- 파일명을 life_lease.jpg로 변경 -->
+            <img src="life_lease.jpg" alt="Life Lease Agreement" class="w-full h-auto rounded-lg shadow">
+        </div>
+        <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
+            <button type="button" onclick="closeLifeLeaseModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
+            <button type="button" onclick="closeLifeLeaseModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
         </div>
     </div>
+</div>
 
     <!-- 평면도 사진 모달 (floor_plan.jpg) -->
     <div id="floorplan-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
