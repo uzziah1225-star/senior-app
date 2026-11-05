@@ -80,9 +80,9 @@
                     <span>💡</span>
                     <span data-kr="주요 안내 및 클릭하여 상세내용 보기" data-en="Highlights (Click for Details)">주요 안내 및 클릭하여 상세내용 보기</span>
                 </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     
-                    <!-- 블록 1: 입주 스페셜 가격 (가격 안내 이미지 팝업) -->
+                    <!-- 블록 1: 입주 스페셜 가격 -->
                     <div onclick="openPriceModal()" class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl">SPECIAL</div>
                         <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏷️</div>
@@ -92,7 +92,7 @@
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 2 -->
+                    <!-- 블록 2: 한인 전용 50호 특별 확보 -->
                     <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
                         <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🇰🇷</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="한인 전용 50호 특별 확보" data-en="50 Korean Reserved Units">한인 전용 50호 특별 확보</h3>
@@ -101,7 +101,17 @@
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 3: 편의시설 & 아파트형 공간 (이미지 팝업 연동) -->
+                    <!-- 블록 3: 전세 입주 (Life Lease Agreement) -->
+                    <div onclick="openLifeLeaseModal()" class="bg-white p-6 rounded-2xl border border-indigo-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl">LIFE LEASE</div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">📜</div>
+                        <h3 class="font-bold text-lg text-stone-900" data-kr="전세 입주 가능 (Life Lease)" data-en="Life Lease Agreement">전세 입주 가능 (Life Lease)</h3>
+                        <p class="text-xs text-indigo-700 font-semibold mt-1" data-kr="평생 렌트 프리 / 보증금 전액 반환" data-en="Rent-Free Occupancy & Refundable Deposit">평생 렌트 프리 / 보증금 전액 반환</p>
+                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="보증금 예치로 거주 기간 동안 월 렌트비 없이 생활하며, 사후 전액 반환되는 조건" data-en="Live rent-free for life with a fully refundable occupancy deposit.">보증금 예치로 거주 기간 동안 월 렌트비 없이 생활하며, 사후 전액 반환되는 조건</p>
+                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
+                    </div>
+
+                    <!-- 블록 4: 편의시설 & 아파트형 공간 -->
                     <div onclick="openFloorPlanModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
                         <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏡</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="편의시설 & 아파트형 공간" data-en="Amenities & Living Space">편의시설 & 아파트형 공간</h3>
@@ -110,7 +120,7 @@
                         <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 4 -->
+                    <!-- 블록 5: 맞춤 케어 & 한국어 지원 -->
                     <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
                         <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🤝</div>
                         <h3 class="font-bold text-lg text-stone-900" data-kr="맞춤 케어 & 한국어 지원" data-en="Services & Korean Support">맞춤 케어 & 한국어 지원</h3>
@@ -345,6 +355,23 @@
         </div>
     </div>
 
+    <!-- 라이프 리스(전세) 계약 모달 (Life Lease Agreement.jpg) -->
+    <div id="lifelease-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
+            <div class="flex justify-between items-center border-b border-stone-100 pb-3">
+                <h3 class="text-xl font-bold text-stone-900">전세 입주 계약 (Life Lease Agreement) 안내</h3>
+                <button type="button" onclick="closeLifeLeaseModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
+            </div>
+            <div class="w-full flex items-center justify-center bg-stone-50 rounded-lg p-2">
+                <img src="Life Lease Agreement.jpg" alt="Life Lease Agreement" class="w-full h-auto rounded-lg shadow">
+            </div>
+            <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
+                <button type="button" onclick="closeLifeLeaseModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
+                <button type="button" onclick="closeLifeLeaseModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
+            </div>
+        </div>
+    </div>
+
     <!-- 평면도 사진 모달 (floor_plan.jpg) -->
     <div id="floorplan-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
@@ -352,7 +379,6 @@
                 <h3 class="text-xl font-bold text-stone-900">편의시설 및 아파트형 공간 평면도</h3>
                 <button type="button" onclick="closeFloorPlanModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
-            <!-- 이미지 표시 영역 -->
             <div class="w-full flex items-center justify-center bg-stone-50 rounded-lg p-2">
                 <img src="floor_plan.jpg" alt="Floor Plan" class="w-full h-auto rounded-lg shadow">
             </div>
@@ -542,6 +568,16 @@
             if (player) {
                 player.pause();
             }
+            if (modal) modal.classList.add('hidden');
+        }
+
+        // 라이프 리스(전세) 계약 모달 함수
+        function openLifeLeaseModal() {
+            const modal = document.getElementById('lifelease-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+        function closeLifeLeaseModal() {
+            const modal = document.getElementById('lifelease-modal');
             if (modal) modal.classList.add('hidden');
         }
 
