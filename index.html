@@ -6,6 +6,7 @@
     <title data-kr="시니어 독립 주거 - Bellaire Pointe" data-en="Independent Senior Living - Bellaire Pointe">시니어 독립 주거 - Bellaire Pointe</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Pretendard', sans-serif; }
@@ -26,7 +27,6 @@
                 <button type="button" onclick="switchTab('contact')" id="nav-contact" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="연락처 및 위치" data-en="Contact Us">연락처 및 위치</button>
                 <button type="button" onclick="switchTab('booking')" id="nav-booking" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="방문 예약" data-en="Book Visit">방문 예약</button>
                 <button type="button" onclick="switchTab('qa')" id="nav-qa" class="transition hover:text-amber-800 pb-1 border-b-2 border-transparent" data-kr="Q&A" data-en="Q&A">Q&A</button>
-                <button type="button" onclick="openAdminLoginModal()" id="nav-admin" class="bg-stone-800 text-white text-xs px-3 py-1.5 rounded-lg transition hover:bg-stone-700" data-kr="🔒 관리자 모드" data-en="🔒 Admin Mode">🔒 관리자 모드</button>
                 
                 <!-- 언어 전환 버튼 (PC) -->
                 <div class="flex items-center space-x-1 pl-2 border-l border-stone-300">
@@ -42,7 +42,6 @@
             <button type="button" onclick="switchTab('contact')" id="m-nav-contact" data-kr="연락처" data-en="Contact">연락처</button>
             <button type="button" onclick="switchTab('booking')" id="m-nav-booking" data-kr="예약" data-en="Book">예약</button>
             <button type="button" onclick="switchTab('qa')" id="m-nav-qa">Q&A</button>
-            <button type="button" onclick="openAdminLoginModal()" class="text-stone-900 font-bold bg-stone-200 px-2 py-1 rounded" data-kr="관리자" data-en="Admin">관리자</button>
             <!-- 언어 전환 버튼 (모바일) -->
             <div class="flex space-x-1">
                 <button type="button" onclick="toggleLanguage('ko')" id="m-btn-ko" class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white">KO</button>
@@ -74,49 +73,68 @@
                 </div>
             </div>
 
-            <!-- 안내 블록 클릭 카드 그리드 -->
+            <!-- 주요 안내 카드 그리드 (총 5개 요청 카드 구성) -->
             <div>
                 <h2 class="text-xl font-bold text-stone-900 mb-4 flex items-center space-x-2">
                     <span>💡</span>
                     <span data-kr="주요 안내 및 클릭하여 상세내용 보기" data-en="Highlights (Click for Details)">주요 안내 및 클릭하여 상세내용 보기</span>
                 </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     
-                    <!-- 블록 1: 입주 스페셜 가격 (가격 안내 이미지 팝업) -->
-                    <div onclick="openPriceModal()" class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl">SPECIAL</div>
-                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏷️</div>
-                        <h3 class="font-bold text-lg text-stone-900" data-kr="입주 스페셜 가격" data-en="Special Move-in Rates">입주 스페셜 가격</h3>
-                        <p class="text-xs text-amber-800 font-semibold mt-1" data-kr="사전 오픈 특별 혜택" data-en="Pre-Opening Special Offer">사전 오픈 특별 혜택</p>
-                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오 $2,100부터, 보증금 및 추가 비용 가격표 보기" data-en="Rates starting at $2,100 with deposit and fee details.">스튜디오 $2,100부터, 보증금 및 추가 비용 가격표 보기</p>
-                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
+                    <!-- 카드 1: 입주 스페셜 가격 (가격 안내 모달) -->
+                    <div onclick="openPriceModal()" class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 relative overflow-hidden group flex flex-col justify-between">
+                        <div>
+                            <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl">SPECIAL</div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏷️</div>
+                            <h3 class="font-bold text-lg text-stone-900" data-kr="입주 스페셜 가격" data-en="Special Move-in Rates">입주 스페셜 가격</h3>
+                            <p class="text-xs text-amber-800 font-semibold mt-1" data-kr="사전 오픈 특별 혜택" data-en="Pre-Opening Special Offer">사전 오픈 특별 혜택</p>
+                            <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오 $2,100부터, 보증금 및 추가 비용 가격표 보기" data-en="Rates starting at $2,100 with deposit and fee details.">스튜디오 $2,100부터, 보증금 및 추가 비용 가격표 보기</p>
+                        </div>
+                        <span class="text-xs text-amber-800 font-bold mt-4 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 2 -->
-                    <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
-                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🇰🇷</div>
-                        <h3 class="font-bold text-lg text-stone-900" data-kr="한인 전용 50호 특별 확보" data-en="50 Korean Reserved Units">한인 전용 50호 특별 확보</h3>
-                        <p class="text-xs text-blue-700 font-semibold mt-1" data-kr="파운더스 스페셜 적용" data-en="Founders Special Offer">파운더스 스페셜 적용</p>
-                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="우수한 교통 접근성, 문화적 친밀감, 요양 병동 연계 혜택 제공" data-en="Great location, cultural comfort, and nursing care connectivity.">우수한 교통 접근성, 문화적 친밀감, 요양 병동 연계 혜택 제공</p>
-                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
+                    <!-- 카드 2: 한인 전용 50호 특별 확보 -->
+                    <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🇰🇷</div>
+                            <h3 class="font-bold text-lg text-stone-900" data-kr="한인 전용 50호 특별 확보" data-en="50 Korean Reserved Units">한인 전용 50호 특별 확보</h3>
+                            <p class="text-xs text-blue-700 font-semibold mt-1" data-kr="파운더스 스페셜 적용" data-en="Founders Special Offer">파운더스 스페셜 적용</p>
+                            <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="우수한 교통 접근성, 문화적 친밀감, 요양 병동 연계 혜택 제공" data-en="Great location, cultural comfort, and nursing care connectivity.">우수한 교통 접근성, 문화적 친밀감, 요양 병동 연계 혜택 제공</p>
+                        </div>
+                        <span class="text-xs text-amber-800 font-bold mt-4 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 3: 편의시설 & 아파트형 공간 (이미지 팝업 연동) -->
-                    <div onclick="openFloorPlanModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏡</div>
-                        <h3 class="font-bold text-lg text-stone-900" data-kr="편의시설 & 아파트형 공간" data-en="Amenities & Living Space">편의시설 & 아파트형 공간</h3>
-                        <p class="text-xs text-emerald-700 font-semibold mt-1" data-kr="층별 평면도 및 구조 보기" data-en="Floor Plans & Layout">층별 평면도 및 구조 보기</p>
-                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오, 1베드, 2베드 아파트형 공간 평면도 이미지 보기" data-en="Detailed floor plan images for studio, 1-bed, and 2-bed units.">스튜디오, 1베드, 2베드 아파트형 공간 평면도 이미지 보기</p>
-                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
+                    <!-- 카드 3: 편의시설 & 아파트형 공간 -->
+                    <div onclick="openFloorPlanModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🏡</div>
+                            <h3 class="font-bold text-lg text-stone-900" data-kr="편의시설 & 아파트형 공간" data-en="Amenities & Living Space">편의시설 & 아파트형 공간</h3>
+                            <p class="text-xs text-emerald-700 font-semibold mt-1" data-kr="층별 평면도 및 구조 보기" data-en="Floor Plans & Layout">층별 평면도 및 구조 보기</p>
+                            <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="스튜디오, 1베드, 2베드 아파트형 공간 평면도 이미지 보기" data-en="Detailed floor plan images for studio, 1-bed, and 2-bed units.">스튜디오, 1베드, 2베드 아파트형 공간 평면도 이미지 보기</p>
+                        </div>
+                        <span class="text-xs text-amber-800 font-bold mt-4 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
                     </div>
 
-                    <!-- 블록 4 -->
-                    <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group">
-                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🤝</div>
-                        <h3 class="font-bold text-lg text-stone-900" data-kr="맞춤 케어 & 한국어 지원" data-en="Services & Korean Support">맞춤 케어 & 한국어 지원</h3>
-                        <p class="text-xs text-purple-700 font-semibold mt-1" data-kr="통역 서비스 & 아침 식사" data-en="Translation & Daily Meals">통역 서비스 & 아침 식사</p>
-                        <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="유럽식 조식(월~금), 청소, 병원/쇼핑 교통, 한국어 도우미 및 24시간 응급대응" data-en="Breakfast (M-F), housekeeping, local transport, Korean translation.">유럽식 조식(월~금), 청소, 병원/쇼핑 교통, 한국어 도우미 및 24시간 응급대응</p>
-                        <span class="text-xs text-amber-800 font-bold mt-3 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
+                    <!-- 카드 4: 맞춤 케어 & 한국어 지원 -->
+                    <div onclick="openFlyerModal()" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">🤝</div>
+                            <h3 class="font-bold text-lg text-stone-900" data-kr="맞춤 케어 & 한국어 지원" data-en="Services & Korean Support">맞춤 케어 & 한국어 지원</h3>
+                            <p class="text-xs text-purple-700 font-semibold mt-1" data-kr="통역 서비스 & 아침 식사" data-en="Translation & Daily Meals">통역 서비스 & 아침 식사</p>
+                            <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="조식(월~금), 청소, 병원/관공서 통역, 24시간 한국어 도우미 수시 지원" data-en="Breakfast (M-F), housekeeping, official translation, Korean support.">조식(월~금), 청소, 병원/관공서 통역, 24시간 한국어 도우미 수시 지원</p>
+                        </div>
+                        <span class="text-xs text-amber-800 font-bold mt-4 inline-block group-hover:underline" data-kr="상세내용 보기 &rarr;" data-en="View Details &rarr;">상세내용 보기 &rarr;</span>
+                    </div>
+
+                    <!-- 카드 5: 전세 입주 계약 (클릭 시 방문 예약하기 페이지 이동) -->
+                    <div onclick="switchTab('booking')" class="bg-white p-6 rounded-2xl border border-amber-300 shadow-sm hover:shadow-md transition cursor-pointer hover:-translate-y-1 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold text-2xl mb-3 group-hover:scale-110 transition">📜</div>
+                            <h3 class="font-bold text-lg text-stone-900" data-kr="전세 입주 계약" data-en="Life Lease Agreement">전세 입주 계약</h3>
+                            <p class="text-xs text-amber-800 font-semibold mt-1" data-kr="월세 0원 & 보증금 100% 전액 반환" data-en="Rent-Free & 100% Refundable Deposit">월세 0원 & 보증금 100% 전액 반환</p>
+                            <p class="text-xs text-stone-500 mt-2 line-clamp-2" data-kr="거주 기간 동안 추가 월세 없이, 퇴거 및 사망 시 보증금 100% 전액 반환 (Life Lease)" data-en="No monthly rent required during stay; 100% deposit refunded upon termination/passing.">거주 기간 동안 추가 월세 없이, 퇴거 및 사망 시 보증금 100% 전액 반환 (Life Lease)</p>
+                        </div>
+                        <span class="text-xs text-amber-800 font-bold mt-4 inline-block group-hover:underline" data-kr="상세내용 보기 (방문 예약) &rarr;" data-en="View Details (Book Visit) &rarr;">상세내용 보기 (방문 예약) &rarr;</span>
                     </div>
 
                 </div>
@@ -291,47 +309,40 @@
                     <h2 class="text-2xl font-bold mb-1" data-kr="질의응답 (Q&A)" data-en="Q&A">질의응답 (Q&A)</h2>
                     <p class="text-stone-600 text-sm" data-kr="입주 조건 및 생활에 대해 궁금하신 점을 확인하거나 직접 문의해 보세요." data-en="Check common questions about residency or submit a direct inquiry.">입주 조건 및 생활에 대해 궁금하신 점을 확인하거나 직접 문의해 보세요.</p>
                 </div>
-                <button type="button" onclick="openInquiryModal()" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-4 py-2.5 rounded-xl text-sm transition" data-kr="문의 등록하기" data-en="New Inquiry">문의 등록하기</button>
             </div>
 
             <div id="inquiry-list" class="space-y-4">
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center">문의 내용을 불러오는 중...</div>
-            </div>
-        </section>
-
-        <!-- 6. 관리자 전용 대시보드 탭 -->
-        <section id="tab-admin" class="hidden max-w-4xl mx-auto space-y-8">
-            <div class="bg-stone-900 text-white p-6 rounded-2xl flex justify-between items-center">
-                <div>
-                    <h2 class="text-2xl font-bold">관리자 전용 대시보드</h2>
-                    <p class="text-stone-400 text-sm">방문 예약 신청 내역 확인 및 Q&A 답변 관리를 수행할 수 있습니다.</p>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-lg text-stone-900">Q. 한국어가 가능한 직원이 상주해 있나요?</h3>
+                    <p class="text-stone-600 text-sm">네, 벨레어 포인트는 한인 어르신들의 언어적 편의를 위해 한국어 상주 도우미 및 병원·관공서 업무 통역 서비스를 정기적으로 제공하고 있습니다.</p>
                 </div>
-                <button type="button" onclick="switchTab('home')" class="bg-white/10 hover:bg-white/20 text-white text-xs px-4 py-2 rounded-xl transition">일반 화면으로 나가기</button>
-            </div>
-
-            <div class="flex space-x-2 border-b border-stone-200 pb-2">
-                <button type="button" onclick="switchAdminSubTab('reservations')" id="admin-sub-res" class="px-4 py-2 font-bold text-amber-800 border-b-2 border-amber-800 text-sm">방문 예약 관리</button>
-                <button type="button" onclick="switchAdminSubTab('inquiries')" id="admin-sub-inq" class="px-4 py-2 text-stone-500 hover:text-stone-800 text-sm">Q&A 답변 관리</button>
-            </div>
-
-            <div id="admin-reservations-pane" class="space-y-4">
-                <div class="text-stone-500 text-center py-8">예약 목록을 불러오는 중...</div>
-            </div>
-
-            <div id="admin-inquiries-pane" class="hidden space-y-4">
-                <div class="text-stone-500 text-center py-8">Q&A 목록을 불러오는 중...</div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-lg text-stone-900">Q. 예치한 전세 보증금은 나중에 100% 반환되나요?</h3>
+                    <p class="text-stone-600 text-sm">네, 평생 임대 계약(Life Lease Agreement)에 따라 예치하신 보증금은 거주 기간 동안 월세로 전혀 차감되지 않으며, 퇴거 또는 사망 시 미납 관리비 및 마모를 제외한 전액이 반환됩니다.</p>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- 동영상 재생 모달 (intro_video.mp4) -->
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-400 py-10 border-t border-stone-800 mt-16">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-3">
+            <h3 class="text-white font-bold text-lg">Bellaire Pointe Senior Living</h3>
+            <p class="text-xs text-stone-500">12424 Bellaire Blvd, Houston, TX 77072 | Contact: (713) 385-2156</p>
+            <p class="text-xs text-stone-600">&copy; 2026 Bellaire Pointe LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- ==================== POPUP MODALS ==================== -->
+
+    <!-- 1. 동영상 재생 모달 (intro_video.mp4) -->
     <div id="video-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-stone-900 rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-w-4xl w-full flex flex-col">
             <div class="flex justify-between items-center border-b border-stone-800 pb-3">
                 <h3 class="text-xl font-bold text-white">벨레어 포인트 소개 동영상</h3>
                 <button type="button" onclick="closeVideoModal()" class="text-stone-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
-            <!-- 비디오 플레이어 영역 -->
             <div class="w-full aspect-video bg-black rounded-xl overflow-hidden flex items-center justify-center">
                 <video id="intro-video-player" controls class="w-full h-full object-contain">
                     <source src="intro_video.mp4" type="video/mp4">
@@ -345,14 +356,13 @@
         </div>
     </div>
 
-    <!-- 평면도 사진 모달 (floor_plan.jpg) -->
+    <!-- 2. 평면도 사진 모달 (floor_plan.jpg) -->
     <div id="floorplan-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
                 <h3 class="text-xl font-bold text-stone-900">편의시설 및 아파트형 공간 평면도</h3>
                 <button type="button" onclick="closeFloorPlanModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
-            <!-- 이미지 표시 영역 -->
             <div class="w-full flex items-center justify-center bg-stone-50 rounded-lg p-2">
                 <img src="floor_plan.jpg" alt="Floor Plan" class="w-full h-auto rounded-lg shadow">
             </div>
@@ -363,7 +373,7 @@
         </div>
     </div>
 
-    <!-- 입주 스페셜 가격 모달 (price_info.jpg) -->
+    <!-- 3. 입주 스페셜 가격 모달 (price_info.jpg) -->
     <div id="price-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
@@ -379,436 +389,156 @@
         </div>
     </div>
 
-    <!-- 일반 상세내용 모달 (flyer.jpg) -->
+    <!-- 4. 한인 전용 50호 전단지 및 맞춤 케어 모달 (flyer-modal) -->
     <div id="flyer-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
-            <div class="flex justify-between items-center border-b border-stone-100 pb-3">
-                <h3 class="text-xl font-bold text-stone-900">벨레어 포인트 상세내용 안내</h3>
-                <button type="button" onclick="closeFlyerModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
+        <div class="bg-white rounded-3xl p-6 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto w-full max-w-2xl border border-stone-200">
+            <div class="flex justify-between items-center border-b border-stone-200 pb-4">
+                <div>
+                    <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full uppercase" data-kr="파운더스 스페셜" data-en="Founders Special">파운더스 스페셜</span>
+                    <h3 class="text-2xl font-bold text-stone-900 mt-1" data-kr="한인 전용 50호 특별 확보 안내" data-en="50 Korean Reserved Units Details">한인 전용 50호 특별 확보 안내</h3>
+                </div>
+                <button type="button" onclick="closeFlyerModal()" class="text-stone-400 hover:text-stone-600 text-3xl font-bold leading-none">&times;</button>
             </div>
-            <img src="flyer.jpg" alt="Bellaire Pointe Flyer" class="w-full h-auto rounded-lg shadow">
-            
-            <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
-                <button type="button" onclick="closeFlyerModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
-                <button type="button" onclick="closeFlyerModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
+
+            <div class="space-y-6 text-stone-700 text-sm">
+                <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-200/60">
+                    <p class="font-semibold text-amber-900 leading-relaxed" data-kr="벨레어 포인트는 한인 어르신들께서 언어와 문화적 불편함 없이 편안하고 안전하게 거주하실 수 있도록 한인 전용 50호를 특별 지정하여 차별화된 맞춤 서비스를 제공합니다." data-en="Bellaire Pointe reserves 50 exclusive units for Korean seniors, providing tailored services to ensure a comfortable and culturally familiar living environment.">
+                        벨레어 포인트는 한인 어르신들께서 언어와 문화적 불편함 없이 편안하고 안전하게 거주하실 수 있도록 한인 전용 50호를 특별 지정하여 차별화된 맞춤 서비스를 제공합니다.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-base text-stone-950 flex items-center space-x-2">
+                        <span>🤝</span>
+                        <span data-kr="맞춤 케어 & 한국어 지원 상세 안내" data-en="Korean Language & Personalized Care Details">맞춤 케어 & 한국어 지원 상세 안내</span>
+                    </h4>
+                    
+                    <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200/70 space-y-3">
+                        <div>
+                            <h5 class="font-bold text-amber-900 text-xs uppercase tracking-wider mb-1" data-kr="언어 및 생활 서포트" data-en="Language & Living Support">언어 및 생활 서포트</h5>
+                            <ul class="list-disc list-inside space-y-1 pl-1 text-stone-600">
+                                <li data-kr="한국어 가능 상주 직원의 24시간 생활 상담 및 응급 상황 수시 지원" data-en="24/7 living consultation and emergency support by Korean-speaking staff.">한국어 가능 상주 직원의 24시간 생활 상담 및 응급 상황 수시 지원</li>
+                                <li data-kr="병원 진료, 관공서 업무, 우편물 및 약품 수령 통역·동행 지원" data-en="Translation and accompaniment support for medical visits, government offices, mail, and medications.">병원 진료, 관공서 업무, 우편물 및 약품 수령 통역·동행 지원</li>
+                                <li data-kr="주 1회 영문 문서 및 행정 서류 한국어 안내 서비스" data-en="Weekly Korean guidance for official English documents and administration.">주 1회 영문 문서 및 행정 서류 한국어 안내 서비스</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t border-stone-200/60 pt-2.5">
+                            <h5 class="font-bold text-amber-900 text-xs uppercase tracking-wider mb-1" data-kr="한식 식단 및 영양 케어" data-en="Korean Meals & Nutrition">한식 식단 및 영양 케어</h5>
+                            <ul class="list-disc list-inside space-y-1 pl-1 text-stone-600">
+                                <li data-kr="평일(월~금) 영양 잡힌 아침 식사(Continental Breakfast) 및 한식형 서빙 제공" data-en="Nutritious breakfast (Continental & Korean style) served Monday through Friday.">평일(월~금) 영양 잡힌 아침 식사(Continental Breakfast) 및 한식형 서빙 제공</li>
+                                <li data-kr="어르신 건강 상태 및 기호(저염식, 당뇨식 등)를 고려한 맞춤식 안내" data-en="Tailored guidance considering seniors' health conditions (low-sodium, diabetic, etc.).">어르신 건강 상태 및 기호(저염식, 당뇨식 등)를 고려한 맞춤식 안내</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t border-stone-200/60 pt-2.5">
+                            <h5 class="font-bold text-amber-900 text-xs uppercase tracking-wider mb-1" data-kr="세대 청소 및 연계 케어" data-en="Housekeeping & Healthcare Integration">세대 청소 및 연계 케어</h5>
+                            <ul class="list-disc list-inside space-y-1 pl-1 text-stone-600">
+                                <li data-kr="정기 세대 청소(Housekeeping) 및 유틸리티(수도, 인터넷, 중앙 관리) 일체 지원" data-en="Regular housekeeping and complete utility support (water, internet, central management).">정기 세대 청소(Housekeeping) 및 유틸리티(수도, 인터넷, 중앙 관리) 일체 지원</li>
+                                <li data-kr="건강 악화 시 단지 내 전문 요양 케어(Assisted Living/Memory Care) 전원 지원" data-en="Smooth transition support to in-facility Assisted Living or Memory Care if health changes.">건강 악화 시 단지 내 전문 요양 케어(Assisted Living/Memory Care) 전원 지원</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-stone-100 flex justify-end space-x-3">
+                <button type="button" onclick="closeFlyerModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2.5 rounded-xl text-sm transition" data-kr="닫기" data-en="Close">닫기</button>
+                <button type="button" onclick="closeFlyerModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2.5 rounded-xl text-sm transition shadow-sm" data-kr="방문 및 입주 상담 예약" data-en="Book a Consultation">방문 및 입주 상담 예약</button>
             </div>
         </div>
     </div>
 
-    <!-- 문의 등록 모달 -->
-    <div id="inquiry-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white max-w-lg w-full rounded-3xl p-6 md:p-8 space-y-6 relative shadow-xl">
-            <h3 class="text-xl font-bold">새로운 문의 등록</h3>
-            <form onsubmit="handleInquiry(event)" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-stone-700 mb-1">제목</label>
-                    <input type="text" id="inq-title" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-stone-700 mb-1">작성자</label>
-                    <input type="text" id="inq-author" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="이름">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-stone-700 mb-1">문의 내용</label>
-                    <textarea id="inq-content" rows="4" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700"></textarea>
-                </div>
-                <div class="flex space-x-3 pt-2">
-                    <button type="button" onclick="closeInquiryModal()" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium py-2.5 rounded-xl transition">취소</button>
-                    <button type="submit" class="flex-1 bg-amber-700 hover:bg-amber-800 text-white font-medium py-2.5 rounded-xl transition">등록하기</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <!-- 관리자 로그인 모달 -->
-    <div id="admin-login-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white max-w-sm w-full rounded-3xl p-6 space-y-6 relative shadow-xl">
-            <h3 class="text-xl font-bold">관리자 인증</h3>
-            <p class="text-stone-500 text-xs">관리자 전용 페이지에 접속하려면 비밀번호를 입력하세요. (비밀번호: J2026!)</p>
-            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
-                <div>
-                    <input type="password" id="admin-pw" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="비밀번호 입력">
-                </div>
-                <div class="flex space-x-3">
-                    <button type="button" onclick="closeAdminLoginModal()" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium py-2.5 rounded-xl text-sm transition">취소</button>
-                    <button type="submit" class="flex-1 bg-stone-900 hover:bg-stone-800 text-white font-medium py-2.5 rounded-xl text-sm transition">로그인</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- 푸터 -->
-    <footer class="bg-white border-t border-stone-200 mt-16 py-8 text-center text-stone-500 text-sm">
-        <p>&copy; 2026 Bellaire Pointe 독립 주거. All rights reserved.</p>
-    </footer>
-
-    <!-- Supabase JS SDK CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-        const SUPABASE_URL = 'https://kemeedcgjkvvhbpsxxai.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtlbWVlZGNnamt2dmhicHN4eGFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE5ODA4MzEsImV4cCI6MjEwNzU1NjgzMX0.WYFZCaiPcWxwVCg0SKY_dXVNCqDO_Ic3BdMjqUH6vvo';
-
-        var supabaseClient = null;
-        try {
-            if (window.supabase) {
-                supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-            }
-        } catch(e) {
-            console.error(e);
-        }
-
-        let currentLang = 'ko';
-
-        function toggleLanguage(lang) {
-            currentLang = lang;
-            const elements = document.querySelectorAll('[data-kr]');
-
-            elements.forEach(el => {
-                const text = el.getAttribute(`data-${lang}`);
-                if (text !== null) {
-                    el.innerHTML = text;
-                }
-            });
-
-            const koBtns = [document.getElementById('btn-ko'), document.getElementById('m-btn-ko')];
-            const enBtns = [document.getElementById('btn-en'), document.getElementById('m-btn-en')];
-
-            koBtns.forEach(btn => {
-                if(!btn) return;
-                if (lang === 'ko') {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white" : "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
-                } else {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600" : "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
-                }
-            });
-
-            enBtns.forEach(btn => {
-                if(!btn) return;
-                if (lang === 'en') {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white" : "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
-                } else {
-                    btn.className = btn.id.startsWith('m') ? "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600" : "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
-                }
-            });
-        }
-
+        // 탭 전환 제어
         function switchTab(tabId) {
-            const tabs = ['home', 'units', 'contact', 'booking', 'qa', 'admin'];
+            const tabs = ['home', 'units', 'contact', 'booking', 'qa'];
             tabs.forEach(t => {
-                const el = document.getElementById(`tab-${t}`);
-                if(el) el.classList.add('hidden');
-                
-                const navBtn = document.getElementById(`nav-${t}`);
-                if(navBtn) {
-                    navBtn.classList.remove('border-amber-800', 'text-amber-800');
-                    navBtn.classList.add('border-transparent');
-                }
-                const mNavBtn = document.getElementById(`m-nav-${t}`);
-                if(mNavBtn) {
-                    mNavBtn.classList.remove('text-amber-800', 'font-bold');
+                const sec = document.getElementById('tab-' + t);
+                const nav = document.getElementById('nav-' + t);
+                if (sec) sec.classList.add('hidden');
+                if (nav) {
+                    nav.classList.remove('border-amber-800', 'text-amber-800');
+                    nav.classList.add('border-transparent');
                 }
             });
 
-            const targetTab = document.getElementById(`tab-${tabId}`);
-            if(targetTab) targetTab.classList.remove('hidden');
-
-            const activeNav = document.getElementById(`nav-${tabId}`);
-            if(activeNav) {
-                activeNav.classList.remove('border-transparent');
-                activeNav.classList.add('border-amber-800', 'text-amber-800');
-            }
-            const activeMNav = document.getElementById(`m-nav-${tabId}`);
-            if(activeMNav) {
-                activeMNav.classList.add('text-amber-800', 'font-bold');
+            const targetSec = document.getElementById('tab-' + tabId);
+            const targetNav = document.getElementById('nav-' + tabId);
+            if (targetSec) targetSec.classList.remove('hidden');
+            if (targetNav) {
+                targetNav.classList.remove('border-transparent');
+                targetNav.classList.add('border-amber-800', 'text-amber-800');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            if (tabId === 'qa') {
-                loadInquiries();
-            } else if (tabId === 'admin') {
-                loadAdminReservations();
-                loadAdminInquiries();
-            }
         }
 
-        // 동영상 모달 함수
+        // 언어 변환 제어
+        let currentLang = 'ko';
+        function toggleLanguage(lang) {
+            currentLang = lang;
+            const btnKo = document.getElementById('btn-ko');
+            const btnEn = document.getElementById('btn-en');
+            const mBtnKo = document.getElementById('m-btn-ko');
+            const mBtnEn = document.getElementById('m-btn-en');
+            
+            if (lang === 'ko') {
+                if(btnKo) btnKo.className = "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
+                if(btnEn) btnEn.className = "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
+                if(mBtnKo) mBtnKo.className = "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white";
+                if(mBtnEn) mBtnEn.className = "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600";
+            } else {
+                if(btnEn) btnEn.className = "px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition";
+                if(btnKo) btnKo.className = "px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition";
+                if(mBtnEn) mBtnEn.className = "px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white";
+                if(mBtnKo) mBtnKo.className = "px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600";
+            }
+
+            document.querySelectorAll('[data-kr]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) el.innerHTML = text;
+            });
+        }
+
+        // 모달 열기/닫기 제어
         function openVideoModal() {
-            const modal = document.getElementById('video-modal');
-            if (modal) modal.classList.remove('hidden');
+            document.getElementById('video-modal').classList.remove('hidden');
+            const v = document.getElementById('intro-video-player');
+            if (v) v.play();
         }
         function closeVideoModal() {
-            const modal = document.getElementById('video-modal');
-            const player = document.getElementById('intro-video-player');
-            if (player) {
-                player.pause();
-            }
-            if (modal) modal.classList.add('hidden');
+            document.getElementById('video-modal').classList.add('hidden');
+            const v = document.getElementById('intro-video-player');
+            if (v) v.pause();
         }
-
-        // 평면도 사진 모달 함수
         function openFloorPlanModal() {
-            const modal = document.getElementById('floorplan-modal');
-            if (modal) modal.classList.remove('hidden');
+            document.getElementById('floorplan-modal').classList.remove('hidden');
         }
         function closeFloorPlanModal() {
-            const modal = document.getElementById('floorplan-modal');
-            if (modal) modal.classList.add('hidden');
+            document.getElementById('floorplan-modal').classList.add('hidden');
         }
-
-        // 가격 모달 함수
         function openPriceModal() {
-            const modal = document.getElementById('price-modal');
-            if (modal) modal.classList.remove('hidden');
+            document.getElementById('price-modal').classList.remove('hidden');
         }
         function closePriceModal() {
-            const modal = document.getElementById('price-modal');
-            if (modal) modal.classList.add('hidden');
+            document.getElementById('price-modal').classList.add('hidden');
         }
-
-        // 일반 상세내용 모달 함수
         function openFlyerModal() {
-            const modal = document.getElementById('flyer-modal');
-            if (modal) modal.classList.remove('hidden');
+            document.getElementById('flyer-modal').classList.remove('hidden');
         }
         function closeFlyerModal() {
-            const modal = document.getElementById('flyer-modal');
-            if (modal) modal.classList.add('hidden');
+            document.getElementById('flyer-modal').classList.add('hidden');
         }
 
-        async function handleReservation(event) {
-            event.preventDefault();
-            const name = document.getElementById('res-name').value;
-            const phone = document.getElementById('res-phone').value;
-            const date = document.getElementById('res-date').value;
-            const time = document.getElementById('res-time').value;
-            const memo = document.getElementById('res-memo').value;
-
-            if(!supabaseClient) {
-                alert('예약이 성공적으로 등록되었습니다.');
-                document.getElementById('reservation-form').reset();
-                switchTab('home');
-                return;
-            }
-
-            const { error } = await supabaseClient
-                .from('reservations')
-                .insert([{ name, phone, date, time, memo }]);
-
-            if (error) {
-                alert('예약 저장 중 오류가 발생했습니다: ' + error.message);
-            } else {
-                alert('방문 예약이 성공적으로 신청되었습니다!');
-                document.getElementById('reservation-form').reset();
-                switchTab('home');
-            }
-        }
-
-        function openInquiryModal() {
-            document.getElementById('inquiry-modal').classList.remove('hidden');
-        }
-        function closeInquiryModal() {
-            document.getElementById('inquiry-modal').classList.add('hidden');
-        }
-
-        async function handleInquiry(event) {
-            event.preventDefault();
-            const title = document.getElementById('inq-title').value;
-            const author = document.getElementById('inq-author').value;
-            const content = document.getElementById('inq-content').value;
-
-            if(!supabaseClient) {
-                alert('문의가 등록되었습니다.');
-                closeInquiryModal();
-                return;
-            }
-
-            const { error } = await supabaseClient
-                .from('inquiries')
-                .insert([{ title, author, content, status: '답변 대기', answer: '' }]);
-
-            if (error) {
-                alert('문의 등록 중 오류가 발생했습니다: ' + error.message);
-            } else {
-                alert('문의가 등록되었습니다.');
-                closeInquiryModal();
-                document.getElementById('inq-title').value = '';
-                document.getElementById('inq-author').value = '';
-                document.getElementById('inq-content').value = '';
-                loadInquiries();
-            }
-        }
-
-        async function loadInquiries() {
-            const listEl = document.getElementById('inquiry-list');
-            if(!listEl) return;
-            listEl.innerHTML = `<div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center">불러오는 중...</div>`;
-
-            if(!supabaseClient) {
-                listEl.innerHTML = `<div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center">등록된 문의가 없습니다. 첫 문의를 남겨보세요!</div>`;
-                return;
-            }
-
-            const { data, error } = await supabaseClient
-                .from('inquiries')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error || !data || data.length === 0) {
-                listEl.innerHTML = `<div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center">등록된 문의가 없습니다. 첫 문의를 남겨보세요!</div>`;
-                return;
-            }
-
-            listEl.innerHTML = data.map(item => `
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs px-2.5 py-1 rounded-full font-medium ${item.status === '답변 완료' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${escapeHtml(item.status || '답변 대기')}</span>
-                        <span class="text-xs text-stone-400">${new Date(item.created_at).toLocaleDateString()}</span>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg text-stone-900">${escapeHtml(item.title || '')}</h3>
-                        <p class="text-stone-600 text-sm mt-1 whitespace-pre-wrap">${escapeHtml(item.content || '')}</p>
-                    </div>
-                    <div class="text-xs text-stone-400">작성자: ${escapeHtml(item.author || '익명')}</div>
-                    ${item.answer ? `
-                        <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 mt-3 space-y-1">
-                            <div class="text-xs font-bold text-amber-800">시설 관리자 답변</div>
-                            <p class="text-stone-700 text-sm whitespace-pre-wrap">${escapeHtml(item.answer)}</p>
-                        </div>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
-
-        function openAdminLoginModal() {
-            document.getElementById('admin-login-modal').classList.remove('hidden');
-        }
-        function closeAdminLoginModal() {
-            document.getElementById('admin-login-modal').classList.add('hidden');
-            document.getElementById('admin-pw').value = '';
-        }
-        function handleAdminLogin(event) {
-            event.preventDefault();
-            const pw = document.getElementById('admin-pw').value;
-            if (pw === 'J2026!') { 
-                closeAdminLoginModal();
-                switchTab('admin');
-            } else {
-                alert('비밀번호가 올바르지 않습니다.');
-            }
-        }
-
-        function switchAdminSubTab(subType) {
-            const resPane = document.getElementById('admin-reservations-pane');
-            const inqPane = document.getElementById('admin-inquiries-pane');
-            const resBtn = document.getElementById('admin-sub-res');
-            const inqBtn = document.getElementById('admin-sub-inq');
-
-            if (subType === 'reservations') {
-                resPane.classList.remove('hidden');
-                inqPane.classList.add('hidden');
-                resBtn.className = "px-4 py-2 font-bold text-amber-800 border-b-2 border-amber-800 text-sm";
-                inqBtn.className = "px-4 py-2 text-stone-500 hover:text-stone-800 text-sm";
-            } else {
-                resPane.classList.add('hidden');
-                inqPane.classList.remove('hidden');
-                inqBtn.className = "px-4 py-2 font-bold text-amber-800 border-b-2 border-amber-800 text-sm";
-                resBtn.className = "px-4 py-2 text-stone-500 hover:text-stone-800 text-sm";
-            }
-        }
-
-        async function loadAdminReservations() {
-            const pane = document.getElementById('admin-reservations-pane');
-            if(!pane) return;
-            if(!supabaseClient) {
-                pane.innerHTML = `<div class="bg-white p-8 rounded-2xl border border-stone-200 text-center text-stone-500">접수된 방문 예약이 없습니다.</div>`;
-                return;
-            }
-            const { data, error } = await supabaseClient.from('reservations').select('*').order('created_at', { ascending: false });
-
-            if (error || !data || data.length === 0) {
-                pane.innerHTML = `<div class="bg-white p-8 rounded-2xl border border-stone-200 text-center text-stone-500">접수된 방문 예약이 없습니다.</div>`;
-                return;
-            }
-
-            pane.innerHTML = data.map(item => `
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    <div class="space-y-1">
-                        <div class="flex items-center space-x-2">
-                            <span class="font-bold text-lg">${escapeHtml(item.name || '')}</span>
-                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-medium">${escapeHtml(item.time || '')}</span>
-                        </div>
-                        <p class="text-sm text-stone-600">연락처: <a href="tel:${escapeHtml(item.phone || '')}" class="text-amber-800 font-medium underline">${escapeHtml(item.phone || '')}</a> | 희망일: ${escapeHtml(item.date || '')}</p>
-                        ${item.memo ? `<p class="text-xs text-stone-500 bg-stone-50 p-2 rounded mt-1">메모: ${escapeHtml(item.memo)}</p>` : ''}
-                    </div>
-                    <button type="button" onclick="deleteReservation('${item.id}')" class="bg-red-50 hover:bg-red-100 text-red-600 text-xs px-3 py-2 rounded-xl transition font-medium">예약 삭제</button>
-                </div>
-            `).join('');
-        }
-
-        async function deleteReservation(id) {
-            if (confirm('해당 예약 내역을 삭제하시겠습니까?')) {
-                if(supabaseClient) await supabaseClient.from('reservations').delete().eq('id', id);
-                loadAdminReservations();
-            }
-        }
-
-        async function loadAdminInquiries() {
-            const pane = document.getElementById('admin-inquiries-pane');
-            if(!pane) return;
-            if(!supabaseClient) {
-                pane.innerHTML = `<div class="bg-white p-8 rounded-2xl border border-stone-200 text-center text-stone-500">등록된 문의가 없습니다.</div>`;
-                return;
-            }
-            const { data, error } = await supabaseClient.from('inquiries').select('*').order('created_at', { ascending: false });
-
-            if (error || !data || data.length === 0) {
-                pane.innerHTML = `<div class="bg-white p-8 rounded-2xl border border-stone-200 text-center text-stone-500">등록된 문의가 없습니다.</div>`;
-                return;
-            }
-
-            pane.innerHTML = data.map(item => `
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs px-2.5 py-1 rounded-full font-medium ${item.status === '답변 완료' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${escapeHtml(item.status || '답변 대기')}</span>
-                        <span class="text-xs text-stone-400">작성자: ${escapeHtml(item.author || '익명')}</span>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-stone-900">${escapeHtml(item.title || '')}</h4>
-                        <p class="text-stone-600 text-sm mt-1 whitespace-pre-wrap">${escapeHtml(item.content || '')}</p>
-                    </div>
-                    <div class="pt-2 border-t border-stone-100 space-y-2">
-                        <label class="block text-xs font-medium text-stone-700">관리자 답변 작성</label>
-                        <textarea id="answer-${item.id}" rows="2" class="w-full px-3 py-2 text-sm rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="답변 내용을 입력하세요...">${escapeHtml(item.answer || '')}</textarea>
-                        <div class="flex justify-end space-x-2">
-                            <button type="button" onclick="saveAnswer('${item.id}')" class="bg-amber-700 hover:bg-amber-800 text-white text-xs px-4 py-2 rounded-xl transition font-medium">답변 저장</button>
-                            <button type="button" onclick="deleteInquiry('${item.id}')" class="bg-red-50 hover:bg-red-100 text-red-600 text-xs px-3 py-2 rounded-xl transition font-medium">삭제</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        async function saveAnswer(id) {
-            const answerText = document.getElementById(`answer-${id}`).value;
-            if(supabaseClient) await supabaseClient.from('inquiries').update({ answer: answerText, status: '답변 완료' }).eq('id', id);
-            alert('답변이 성공적으로 등록되었습니다.');
-            loadAdminInquiries();
-        }
-
-        async function deleteInquiry(id) {
-            if (confirm('해당 문의 글을 삭제하시겠습니까?')) {
-                if(supabaseClient) await supabaseClient.from('inquiries').delete().eq('id', id);
-                loadAdminInquiries();
-            }
-        }
-
-        function escapeHtml(str) {
-            if (!str) return '';
-            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+        // 예약 폼 제출 처리
+        function handleReservation(e) {
+            e.preventDefault();
+            alert(currentLang === 'ko' ? '방문 예약 신청이 완료되었습니다. 담당자가 곧 연락드리겠습니다.' : 'Your visit reservation has been submitted. A representative will contact you soon.');
+            document.getElementById('reservation-form').reset();
+            switchTab('home');
         }
     </script>
 </body>
-</html>< ! - -   f o r c e   u p d a t e   - - > 
- 
- < ! - -   f o r c e   u p d a t e   - - >  
- 
+</html>
