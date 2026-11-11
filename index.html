@@ -48,7 +48,6 @@
             <button type="button" onclick="switchTab('booking')" id="m-nav-booking" class="whitespace-nowrap px-1" data-kr="예약" data-en="Book">예약</button>
             <button type="button" onclick="switchTab('qa')" id="m-nav-qa" class="whitespace-nowrap px-1">Q&A</button>
             <button type="button" onclick="openAdminLoginModal()" class="text-stone-900 font-bold bg-stone-200 px-2 py-1 rounded whitespace-nowrap text-[11px]" data-kr="관리자" data-en="Admin">관리자</button>
-            <!-- 언어 전환 버튼 (모바일) -->
             <div class="flex space-x-1 pl-1">
                 <button type="button" onclick="toggleLanguage('ko')" id="m-btn-ko" class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white">KO</button>
                 <button type="button" onclick="toggleLanguage('en')" id="m-btn-en" class="px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600">EN</button>
@@ -59,7 +58,7 @@
     <!-- 메인 컨텐츠 영역 -->
     <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
 
-        <!-- 1. 홈 / 시설 및 주요 혜택 카드 블록 -->
+        <!-- 1. 홈 섹션 -->
         <section id="tab-home" class="space-y-10">
             <!-- 메인 히어로 배너 -->
             <div onclick="openVideoModal()" class="relative rounded-3xl overflow-hidden bg-stone-900 text-white p-8 md:p-16 flex flex-col justify-center min-h-[380px] shadow-md cursor-pointer hover:shadow-lg transition">
@@ -82,7 +81,7 @@
                 </div>
             </div>
 
-            <!-- 안내 블록 클릭 카드 그리드 (5개 전체 카드) -->
+            <!-- 안내 블록 클릭 카드 그리드 (5개 전체) -->
             <div>
                 <h2 class="text-xl font-bold text-stone-900 mb-4 flex items-center space-x-2">
                     <span>💡</span>
@@ -141,9 +140,8 @@
             </div>
         </section>
 
-        <!-- 2. 신규 섹션: 전세 입주 계약 (Life Lease Agreement) -->
+        <!-- 2. 전세 입주 계약 (Life Lease Agreement) -->
         <section id="tab-lifelease" class="hidden space-y-10">
-            <!-- 인트로 배너 -->
             <div class="bg-amber-900 text-white rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-lg">
                 <div class="relative z-10 max-w-3xl space-y-3">
                     <span class="text-xs uppercase tracking-wider bg-amber-800/80 text-amber-200 px-3 py-1 rounded-full font-semibold inline-block" data-kr="미국 텍사스 휴스턴 최초 시니어 맞춤 전세 모델" data-en="Senior Life Lease Model in Houston">미국 텍사스 휴스턴 최초 시니어 맞춤 전세 모델</span>
@@ -158,7 +156,6 @@
                 </div>
             </div>
 
-            <!-- 핵심 특징 3가지 -->
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
                     <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-2xl">💰</div>
@@ -177,7 +174,6 @@
                 </div>
             </div>
 
-            <!-- 포함 내역 vs 실비 청구 내역 비교 테이블 -->
             <div class="bg-white rounded-2xl border border-stone-200 p-6 md:p-8 shadow-sm space-y-6">
                 <div>
                     <h3 class="text-xl font-bold text-stone-900" data-kr="전세 입주 시 비용 구성 안내" data-en="Cost Structure & Inclusions">전세 입주 시 비용 구성 안내</h3>
@@ -185,80 +181,38 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <!-- 무료 포함 혜택 -->
                     <div class="border border-emerald-200 bg-emerald-50/50 rounded-xl p-5 space-y-4">
                         <div class="flex items-center space-x-2 text-emerald-800 font-bold">
                             <span class="text-xl">✅</span>
                             <span data-kr="전세 보증금으로 전액 무료 제공 (Section 2.6)" data-en="Included at No Charge (Section 2.6)">전세 보증금으로 전액 무료 제공 (Section 2.6)</span>
                         </div>
                         <ul class="text-sm text-stone-700 space-y-2.5">
-                            <li class="flex items-start space-x-2">
-                                <span class="text-emerald-600 font-bold">✔</span>
-                                <span><strong>유닛 거주 및 사용권 (평생 임대료 $0)</strong></span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-emerald-600 font-bold">✔</span>
-                                <span><strong>재산세 및 제세공과금</strong> (Bellaire Pointe 전액 부담)</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-emerald-600 font-bold">✔</span>
-                                <span><strong>건물 및 공용 시설 보험</strong> (화재/배상책임 등)</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-emerald-600 font-bold">✔</span>
-                                <span><strong>시설 유지보수 및 수리</strong> (기본 가전 및 설비 무상 수리)</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-emerald-600 font-bold">✔</span>
-                                <span><strong>정기 실내 청소 (Housekeeping)</strong> (주 1회 표준 제공)</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-emerald-600 font-bold">✔</span>
-                                <span><strong>커뮤니티 공용 공간 및 프로그램</strong> 자유 이용</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-emerald-600 font-bold">✔</span>
-                                <span><strong>기본 유틸리티 보조</strong> (월 $100까지 무료 지원)</span>
-                            </li>
+                            <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✔</span><span><strong>유닛 거주 및 사용권 (평생 임대료 $0)</strong></span></li>
+                            <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✔</span><span><strong>재산세 및 제세공과금</strong> (Bellaire Pointe 전액 부담)</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✔</span><span><strong>건물 및 공용 시설 보험</strong> (화재/배상책임 등)</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✔</span><span><strong>시설 유지보수 및 수리</strong> (기본 가전 및 설비 무상 수리)</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✔</span><span><strong>정기 실내 청소 (Housekeeping)</strong> (주 1회 표준 제공)</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✔</span><span><strong>커뮤니티 공용 공간 및 프로그램</strong> 자유 이용</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-emerald-600 font-bold">✔</span><span><strong>기본 유틸리티 보조</strong> (월 $100까지 무료 지원)</span></li>
                         </ul>
                     </div>
 
-                    <!-- 실비/선택 부담 항목 -->
                     <div class="border border-stone-200 bg-stone-50/70 rounded-xl p-5 space-y-4">
                         <div class="flex items-center space-x-2 text-stone-800 font-bold">
                             <span class="text-xl">💡</span>
                             <span data-kr="실비 청구 및 선택 서비스 (Monthly Charges)" data-en="Monthly Charges & Options">실비 청구 및 선택 서비스 (Monthly Charges)</span>
                         </div>
                         <ul class="text-sm text-stone-700 space-y-2.5">
-                            <li class="flex items-start space-x-2">
-                                <span class="text-amber-800 font-bold">•</span>
-                                <span><strong>월 $100 초과 유틸리티:</strong> 전기, 수도, 가스 등 $100 초과분 실비 정산</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-amber-800 font-bold">•</span>
-                                <span><strong>동반 입주자 비용 (Second Resident):</strong> 부부/동반인 거주 시 월 $500 (추가 보증금 없음)</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-amber-800 font-bold">•</span>
-                                <span><strong>식사 패키지 (선택):</strong> 조식 / 2식 / 3식 패키지 중 식생활에 맞게 선택</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-amber-800 font-bold">•</span>
-                                <span><strong>인터넷 & 케이블 TV:</strong> 실비 패키지 선택</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-amber-800 font-bold">•</span>
-                                <span><strong>맞춤 케어 (Building B 입주 시):</strong> 어시스티드 리빙 케어 등급별 월 비용</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <span class="text-amber-800 font-bold">•</span>
-                                <span><strong>세입자 개인 보험:</strong> 최소 $100,000 한도의 Renter's Insurance 유지</span>
-                            </li>
+                            <li class="flex items-start space-x-2"><span class="text-amber-800 font-bold">•</span><span><strong>월 $100 초과 유틸리티:</strong> 전기, 수도, 가스 등 $100 초과분 실비 정산</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-amber-800 font-bold">•</span><span><strong>동반 입주자 비용:</strong> 부부/동반인 거주 시 월 $500 (추가 보증금 없음)</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-amber-800 font-bold">•</span><span><strong>식사 패키지 (선택):</strong> 조식 / 2식 / 3식 패키지 중 선택</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-amber-800 font-bold">•</span><span><strong>인터넷 & 케이블 TV:</strong> 실비 패키지 선택</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-amber-800 font-bold">•</span><span><strong>맞춤 케어 (Building B 입주 시):</strong> 어시스티드 리빙 케어 비용</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-amber-800 font-bold">•</span><span><strong>세입자 개인 보험:</strong> 최소 $100,000 한도의 보험 유지</span></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- 주요 계약 요약 FAQ 블록 -->
                 <div class="border-t border-stone-200 pt-6">
                     <h4 class="font-bold text-stone-900 mb-3" data-kr="자주 묻는 전세 계약 질문 (핵심 요약)" data-en="Key Lease FAQs">자주 묻는 전세 계약 질문 (핵심 요약)</h4>
                     <div class="grid md:grid-cols-2 gap-4 text-xs md:text-sm text-stone-600">
@@ -283,7 +237,7 @@
             </div>
         </section>
 
-        <!-- 3. 평면도 및 가격 / 옵션 -->
+        <!-- 3. 평면도 및 가격 -->
         <section id="tab-units" class="hidden space-y-8">
             <div>
                 <h2 class="text-2xl font-bold mb-2" data-kr="세대 타입 및 가격 안내" data-en="Floor Plans & Pricing">세대 타입 및 가격 안내</h2>
@@ -345,7 +299,7 @@
             </div>
         </section>
 
-        <!-- 4. 연락처 및 위치 (Contact Us) -->
+        <!-- 4. 연락처 및 위치 -->
         <section id="tab-contact" class="hidden max-w-4xl mx-auto space-y-8">
             <div class="text-center max-w-xl mx-auto">
                 <h2 class="text-3xl font-bold text-stone-900 mb-2" data-kr="연락처 및 위치 안내" data-en="Contact Us & Location">연락처 및 위치 안내</h2>
@@ -353,7 +307,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <!-- 담당자 1 -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4 flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-bold text-stone-900">윤찬억 <span class="text-sm font-normal text-stone-500">Johnny Yun</span></h3>
@@ -373,7 +326,6 @@
                     </div>
                 </div>
 
-                <!-- 담당자 2 -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4 flex flex-col justify-between">
                     <div>
                         <h3 class="text-xl font-bold text-stone-900">이태우 <span class="text-sm font-normal text-stone-500">Thomas Lee</span></h3>
@@ -455,7 +407,7 @@
             </form>
         </section>
 
-        <!-- 6. Q&A / 질의응답 -->
+        <!-- 6. Q&A 섹션 -->
         <section id="tab-qa" class="hidden max-w-3xl mx-auto space-y-6">
             <div class="flex justify-between items-center">
                 <div>
@@ -470,7 +422,7 @@
             </div>
         </section>
 
-        <!-- 7. 관리자 전용 대시보드 탭 -->
+        <!-- 7. 관리자 대시보드 섹션 -->
         <section id="tab-admin" class="hidden max-w-4xl mx-auto space-y-8">
             <div class="bg-stone-900 text-white p-6 rounded-2xl flex justify-between items-center">
                 <div>
@@ -495,7 +447,7 @@
         </section>
     </main>
 
-    <!-- 전세 계약(Life Lease) 상세 조항 모달 -->
+    <!-- 모달 창들 -->
     <div id="lifelease-modal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 md:p-8 space-y-5 relative shadow-2xl max-h-[90vh] overflow-y-auto w-full max-w-3xl">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
@@ -505,35 +457,25 @@
                 </div>
                 <button type="button" onclick="closeLifeLeaseModal()" class="text-stone-400 hover:text-stone-600 text-2xl font-bold">&times;</button>
             </div>
-            
             <div class="space-y-4 text-xs md:text-sm text-stone-700 leading-relaxed">
                 <div class="p-4 bg-amber-50 rounded-xl border border-amber-200">
                     <h4 class="font-bold text-amber-900 text-base mb-1">핵심 안내 (Notice to Resident)</h4>
                     <p>유닛에 거주하시는 동안 월 임대료(Rent)는 일체 면제됩니다. 입주 시 예치하신 보증금(Deposit)은 최종 거주자 사망 또는 적법한 환불 사유 발생 시 미납금과 비정상적 파손 비용을 제외한 전액(100%)이 반환됩니다.</p>
                 </div>
-
                 <div class="space-y-2">
                     <h4 class="font-bold text-stone-900 border-l-4 border-amber-800 pl-2">1. 입주 자격 및 거주 기간 (Eligibility & Term)</h4>
                     <p>• 입주자 및 공동 거주자(Co-Resident)는 계약 체결 전 만 62세 이상임을 증명하는 정부 발행 신분증을 제출해야 합니다.</p>
                     <p>• 본 계약은 최종 생존 거주자의 사망 시까지 평생 유효하며, 부부 중 한 분이 먼저 작고하시더라도 남은 배우자가 평생 동일 조건으로 거주할 수 있습니다.</p>
                 </div>
-
                 <div class="space-y-2">
                     <h4 class="font-bold text-stone-900 border-l-4 border-amber-800 pl-2">2. 7일 계약 철회권 (7-Day Rescission)</h4>
                     <p>• 계약 서명 후 7일 이내 서면 통지를 통해 위약금 없이 계약을 철회할 수 있으며, Bellaire Pointe는 30일 이내에 예치금 전액을 반환합니다.</p>
                 </div>
-
                 <div class="space-y-2">
                     <h4 class="font-bold text-stone-900 border-l-4 border-amber-800 pl-2">3. 보증금 반환 시점 및 수혜자 지정 (Refund & Beneficiary)</h4>
-                    <p>• 최종 생존 거주자 사망 및 유닛 인도 후 90일 이내, 계약서(Exhibit B)에 미리 등록된 지정 수혜자(자녀/가족 등)에게 보증금이 송금(Wire) 또는 보증수표로 지급됩니다.</p>
-                </div>
-
-                <div class="space-y-2">
-                    <h4 class="font-bold text-stone-900 border-l-4 border-amber-800 pl-2">4. 건물 A(독립주거) 및 건물 B(어시스티드 리빙) 이동</h4>
-                    <p>• 건강 상태나 필요에 따라 독립 주거(12420 Bellaire)에서 어시스티드 리빙(12424 Bellaire)으로 보증금 차액을 정산하여 이동할 수 있습니다.</p>
+                    <p>• 최종 생존 거주자 사망 및 유닛 인도 후 90일 이내, 계약서(Exhibit B)에 미리 등록된 지정 수혜자에게 보증금이 전액 송금(Wire) 또는 보증수표로 지급됩니다.</p>
                 </div>
             </div>
-
             <div class="pt-4 border-t border-stone-100 flex justify-end space-x-3">
                 <button type="button" onclick="closeLifeLeaseModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
                 <button type="button" onclick="closeLifeLeaseModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">전세 계약 상담 신청</button>
@@ -541,7 +483,6 @@
         </div>
     </div>
 
-    <!-- 동영상 재생 모달 -->
     <div id="video-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-stone-900 rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-w-4xl w-full flex flex-col">
             <div class="flex justify-between items-center border-b border-stone-800 pb-3">
@@ -556,12 +497,10 @@
             </div>
             <div class="pt-2 flex justify-end space-x-3">
                 <button type="button" onclick="closeVideoModal()" class="bg-stone-800 hover:bg-stone-700 text-white font-medium px-5 py-2 rounded-xl text-sm transition">닫기</button>
-                <button type="button" onclick="closeVideoModal(); switchTab('booking');" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
             </div>
         </div>
     </div>
 
-    <!-- 평면도 사진 모달 -->
     <div id="floorplan-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl flex flex-col">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
@@ -573,12 +512,10 @@
             </div>
             <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
                 <button type="button" onclick="closeFloorPlanModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
-                <button type="button" onclick="closeFloorPlanModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
             </div>
         </div>
     </div>
 
-    <!-- 입주 스페셜 가격 모달 -->
     <div id="price-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-lg">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
@@ -588,12 +525,10 @@
             <img src="price_info.jpg" alt="Bellaire Pointe Pricing Info" class="w-full h-auto rounded-lg shadow">
             <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
                 <button type="button" onclick="closePriceModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
-                <button type="button" onclick="closePriceModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
             </div>
         </div>
     </div>
 
-    <!-- 일반 플라이어 모달 -->
     <div id="flyer-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-4 md:p-6 space-y-4 relative shadow-2xl max-h-[95vh] overflow-y-auto w-full max-w-2xl">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
@@ -603,7 +538,6 @@
             <img src="flyer.jpg" alt="Bellaire Pointe Flyer" class="w-full h-auto rounded-lg shadow">
             <div class="pt-3 border-t border-stone-100 flex justify-end space-x-3">
                 <button type="button" onclick="closeFlyerModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl text-sm transition">닫기</button>
-                <button type="button" onclick="closeFlyerModal(); switchTab('booking');" class="bg-amber-800 hover:bg-amber-900 text-white font-medium px-5 py-2 rounded-xl text-sm transition">방문 예약하기</button>
             </div>
         </div>
     </div>
@@ -624,17 +558,16 @@
         </div>
     </footer>
 
-    <!-- JavaScript 기능 스크립트 -->
+    <!-- 전체 동작 JavaScript -->
     <script>
         let currentLang = 'ko';
 
-        // 탭 전환 (메인 메뉴)
         function switchTab(tabId) {
             const tabs = ['home', 'units', 'lifelease', 'contact', 'booking', 'qa', 'admin'];
             tabs.forEach(id => {
-                const el = document.getElementById(`tab-${id}`);
-                const navBtn = document.getElementById(`nav-${id}`);
-                const mNavBtn = document.getElementById(`m-nav-${id}`);
+                const el = document.getElementById('tab-' + id);
+                const navBtn = document.getElementById('nav-' + id);
+                const mNavBtn = document.getElementById('m-nav-' + id);
                 
                 if (el) el.classList.add('hidden');
                 if (navBtn) {
@@ -646,9 +579,9 @@
                 }
             });
 
-            const activeTab = document.getElementById(`tab-${tabId}`);
-            const activeNav = document.getElementById(`nav-${tabId}`);
-            const activeMNav = document.getElementById(`m-nav-${tabId}`);
+            const activeTab = document.getElementById('tab-' + tabId);
+            const activeNav = document.getElementById('nav-' + tabId);
+            const activeMNav = document.getElementById('m-nav-' + tabId);
 
             if (activeTab) activeTab.classList.remove('hidden');
             if (activeNav) {
@@ -659,7 +592,6 @@
                 activeMNav.classList.add('text-amber-800', 'font-bold');
             }
             
-            // 관리자 탭 진입 시 데이터 로드
             if (tabId === 'admin') {
                 renderAdminData();
             } else if (tabId === 'qa') {
@@ -669,7 +601,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // [추가됨] 관리자 서브 탭 전환 (방문 예약 관리 / Q&A 답변 관리)
         function switchAdminSubTab(subTab) {
             const resPane = document.getElementById('admin-reservations-pane');
             const inqPane = document.getElementById('admin-inquiries-pane');
@@ -689,7 +620,6 @@
             }
         }
 
-        // [추가됨] 방문 예약 데이터 저장 및 폼 핸들러
         function handleReservation(e) {
             e.preventDefault();
             const reservation = {
@@ -712,9 +642,7 @@
             switchTab('home');
         }
 
-        // [추가됨] 관리자 화면 데이터 렌더링
         function renderAdminData() {
-            // 1. 방문 예약 목록 렌더링
             const reservations = JSON.parse(localStorage.getItem('bp_reservations') || '[]');
             const resContainer = document.getElementById('admin-reservations-pane');
             
@@ -739,7 +667,6 @@
                 `).join('');
             }
 
-            // 2. Q&A 목록 렌더링 (관리자용)
             const inquiries = JSON.parse(localStorage.getItem('bp_inquiries') || '[]');
             const inqContainer = document.getElementById('admin-inquiries-pane');
 
@@ -773,7 +700,6 @@
             }
         }
 
-        // Q&A 등록 및 답변 처리 함수들
         function openInquiryModal() {
             const q = prompt('문의하실 내용을 입력해주세요:');
             if (q && q.trim()) {
@@ -821,7 +747,7 @@
         }
 
         function submitAnswer(id) {
-            const input = document.getElementById(`ans-input-${id}`);
+            const input = document.getElementById('ans-input-' + id);
             if (!input || !input.value.trim()) return;
 
             const inquiries = JSON.parse(localStorage.getItem('bp_inquiries') || '[]');
@@ -849,7 +775,6 @@
             renderAdminData();
         }
 
-        // 관리자 모드 로그인
         function openAdminLoginModal() {
             const pw = prompt('관리자 비밀번호를 입력해주세요:');
             if (pw === 'J2026!' || pw === 'C2026!') {
@@ -859,7 +784,6 @@
             }
         }
 
-        // 모달 제어 함수들
         function openLifeLeaseModal() { document.getElementById('lifelease-modal').classList.remove('hidden'); }
         function closeLifeLeaseModal() { document.getElementById('lifelease-modal').classList.add('hidden'); }
 
@@ -887,7 +811,7 @@
             currentLang = lang;
             const elements = document.querySelectorAll('[data-kr]');
             elements.forEach(el => {
-                el.innerHTML = el.getAttribute(`data-${lang}`);
+                el.innerHTML = el.getAttribute('data-' + lang);
             });
             
             const btnKo = document.getElementById('btn-ko');
@@ -907,3 +831,6 @@
                 mBtnEn.className = 'px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white';
             }
         }
+    </script>
+</body>
+</html>
