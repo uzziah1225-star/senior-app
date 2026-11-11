@@ -809,26 +809,41 @@
 
         function toggleLanguage(lang) {
             currentLang = lang;
-            const elements = document.querySelectorAll('[data-kr]');
+            
+            // data-kr 또는 data-en 속성을 가진 모든 요소 탐색
+            const elements = document.querySelectorAll('[data-kr], [data-en]');
+            
             elements.forEach(el => {
-                el.innerHTML = el.getAttribute('data-' + lang);
+                // 최초 실행 시 기본 작성된 한국어 원본을 data-kr에 자동 백업
+                if (!el.getAttribute('data-kr')) {
+                    el.setAttribute('data-kr', el.innerHTML.trim());
+                }
+
+                const targetText = el.getAttribute('data-' + lang);
+                
+                // 해당 언어의 텍스트가 정상적으로 존재할 때만 교체
+                if (targetText !== null && targetText !== undefined && targetText !== '') {
+                    el.innerHTML = targetText;
+                }
             });
             
+            // PC 버튼 스타일 전환
             const btnKo = document.getElementById('btn-ko');
             const btnEn = document.getElementById('btn-en');
+            // 모바일 버튼 스타일 전환
             const mBtnKo = document.getElementById('m-btn-ko');
             const mBtnEn = document.getElementById('m-btn-en');
             
             if (lang === 'ko') {
-                btnKo.className = 'px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition';
-                btnEn.className = 'px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition';
-                mBtnKo.className = 'px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white';
-                mBtnEn.className = 'px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600';
+                if (btnKo) btnKo.className = 'px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition';
+                if (btnEn) btnEn.className = 'px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition';
+                if (mBtnKo) mBtnKo.className = 'px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white';
+                if (mBtnEn) mBtnEn.className = 'px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600';
             } else {
-                btnKo.className = 'px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition';
-                btnEn.className = 'px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition';
-                mBtnKo.className = 'px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600';
-                mBtnEn.className = 'px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white';
+                if (btnKo) btnKo.className = 'px-2 py-1 text-xs font-semibold rounded bg-stone-200 text-stone-600 transition';
+                if (btnEn) btnEn.className = 'px-2 py-1 text-xs font-bold rounded bg-amber-800 text-white transition';
+                if (mBtnKo) mBtnKo.className = 'px-1.5 py-0.5 text-[10px] font-semibold rounded bg-stone-200 text-stone-600';
+                if (mBtnEn) mBtnEn.className = 'px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white';
             }
         }
     </script>
