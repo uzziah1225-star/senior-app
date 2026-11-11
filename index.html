@@ -628,6 +628,7 @@
     <script>
         let currentLang = 'ko';
 
+        // 탭 전환 (메인 메뉴)
         function switchTab(tabId) {
             const tabs = ['home', 'units', 'lifelease', 'contact', 'booking', 'qa', 'admin'];
             tabs.forEach(id => {
@@ -657,10 +658,208 @@
             if (activeMNav) {
                 activeMNav.classList.add('text-amber-800', 'font-bold');
             }
+            
+            // 관리자 탭 진입 시 데이터 로드
+            if (tabId === 'admin') {
+                renderAdminData();
+            } else if (tabId === 'qa') {
+                renderQAList();
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 모달 열기/닫기
+        // [추가됨] 관리자 서브 탭 전환 (방문 예약 관리 / Q&A 답변 관리)
+        function switchAdminSubTab(subTab) {
+            const resPane = document.getElementById('admin-reservations-pane');
+            const inqPane = document.getElementById('admin-inquiries-pane');
+            const resBtn = document.getElementById('admin-sub-res');
+            const inqBtn = document.getElementById('admin-sub-inq');
+
+            if (subTab === 'reservations') {
+                resPane.classList.remove('hidden');
+                inqPane.classList.add('hidden');
+                resBtn.className = 'px-4 py-2 font-bold text-amber-800 border-b-2 border-amber-800 text-sm';
+                inqBtn.className = 'px-4 py-2 text-stone-500 hover:text-stone-800 text-sm';
+            } else {
+                resPane.classList.add('hidden');
+                inqPane.classList.remove('hidden');
+                inqBtn.className = 'px-4 py-2 font-bold text-amber-800 border-b-2 border-amber-800 text-sm';
+                resBtn.className = 'px-4 py-2 text-stone-500 hover:text-stone-800 text-sm';
+            }
+        }
+
+        // [추가됨] 방문 예약 데이터 저장 및 폼 핸들러
+        function handleReservation(e) {
+            e.preventDefault();
+            const reservation = {
+                id: Date.now(),
+                name: document.getElementById('res-name').value,
+                phone: document.getElementById('res-phone').value,
+                type: document.getElementById('res-type') ? document.getElementById('res-type').value : '일반 상담',
+                date: document.getElementById('res-date').value,
+                time: document.getElementById('res-time').value,
+                memo: document.getElementById('res-memo').value,
+                createdAt: new Date().toLocaleDateString('ko-KR')
+            };
+
+            const reservations = JSON.parse(localStorage.getItem('bp_reservations') || '[]');
+            reservations.unshift(reservation);
+            localStorage.setItem('bp_reservations', JSON.stringify(reservations));
+
+            alert('방문 예약이 정상적으로 접수되었습니다.');
+            e.target.reset();
+            switchTab('home');
+        }
+
+        // [추가됨] 관리자 화면 데이터 렌더링
+        function renderAdminData() {
+            // 1. 방문 예약 목록 렌더링
+            const reservations = JSON.parse(localStorage.getItem('bp_reservations') || '[]');
+            const resContainer = document.getElementById('admin-reservations-pane');
+            
+            if (reservations.length === 0) {
+                resContainer.innerHTML = '<div class="bg-white p-8 rounded-2xl border border-stone-200 text-stone-500 text-center">접수된 방문 예약이 없습니다.</div>';
+            } else {
+                resContainer.innerHTML = reservations.map(r => `
+                    <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">${r.type}</span>
+                                <h4 class="font-bold text-base text-stone-900 mt-1">${r.name} 님 <span class="text-xs font-normal text-stone-500">(${r.phone})</span></h4>
+                            </div>
+                            <button onclick="deleteReservation(${r.id})" class="text-xs text-red-600 hover:underline">삭제</button>
+                        </div>
+                        <div class="text-xs text-stone-600">
+                            <strong>방문 희망일:</strong> ${r.date} ${r.time}
+                        </div>
+                        ${r.memo ? `<div class="text-xs bg-stone-50 p-2.5 rounded-lg text-stone-700"><strong>문의 내용:</strong> ${r.memo}</div>` : ''}
+                        <div class="text-[11px] text-stone-400 text-right">신청일: ${r.createdAt}</div>
+                    </div>
+                `).join('');
+            }
+
+            // 2. Q&A 목록 렌더링 (관리자용)
+            const inquiries = JSON.parse(localStorage.getItem('bp_inquiries') || '[]');
+            const inqContainer = document.getElementById('admin-inquiries-pane');
+
+            if (inquiries.length === 0) {
+                inqContainer.innerHTML = '<div class="bg-white p-8 rounded-2xl border border-stone-200 text-stone-500 text-center">등록된 Q&A 문의가 없습니다.</div>';
+            } else {
+                inqContainer.innerHTML = inquiries.map(i => `
+                    <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs font-bold ${i.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'} px-2 py-0.5 rounded">
+                                    ${i.answer ? '답변완료' : '답변대기'}
+                                </span>
+                                <h4 class="font-bold text-stone-900 mt-1">${i.question}</h4>
+                                <div class="text-xs text-stone-500">작성자: ${i.author} | ${i.date}</div>
+                            </div>
+                            <button onclick="deleteInquiry(${i.id})" class="text-xs text-red-600 hover:underline">삭제</button>
+                        </div>
+                        ${i.answer ? `
+                            <div class="text-xs bg-amber-50 p-3 rounded-xl border border-amber-200 text-stone-800">
+                                <strong>관리자 답변:</strong> ${i.answer}
+                            </div>
+                        ` : `
+                            <div class="flex gap-2 pt-2">
+                                <input type="text" id="ans-input-${i.id}" class="flex-grow text-xs px-3 py-2 border rounded-xl" placeholder="답변을 입력하세요">
+                                <button onclick="submitAnswer(${i.id})" class="bg-amber-800 text-white text-xs px-4 py-2 rounded-xl font-medium">등록</button>
+                            </div>
+                        `}
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Q&A 등록 및 답변 처리 함수들
+        function openInquiryModal() {
+            const q = prompt('문의하실 내용을 입력해주세요:');
+            if (q && q.trim()) {
+                const name = prompt('성함을 입력해주세요:') || '익명';
+                const inquiries = JSON.parse(localStorage.getItem('bp_inquiries') || '[]');
+                inquiries.unshift({
+                    id: Date.now(),
+                    author: name,
+                    question: q,
+                    answer: '',
+                    date: new Date().toLocaleDateString('ko-KR')
+                });
+                localStorage.setItem('bp_inquiries', JSON.stringify(inquiries));
+                renderQAList();
+                alert('문의가 등록되었습니다.');
+            }
+        }
+
+        function renderQAList() {
+            const inquiries = JSON.parse(localStorage.getItem('bp_inquiries') || '[]');
+            const list = document.getElementById('inquiry-list');
+            if (!list) return;
+
+            if (inquiries.length === 0) {
+                list.innerHTML = '<div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-stone-500 text-center">등록된 질문이 없습니다. 첫 문의를 남겨보세요.</div>';
+                return;
+            }
+
+            list.innerHTML = inquiries.map(i => `
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <div class="flex justify-between items-center text-xs text-stone-500">
+                        <span>작성자: ${i.author}</span>
+                        <span>${i.date}</span>
+                    </div>
+                    <div class="font-bold text-stone-900 text-sm md:text-base">Q. ${i.question}</div>
+                    ${i.answer ? `
+                        <div class="bg-stone-50 p-4 rounded-xl text-xs md:text-sm text-stone-700 mt-2 border border-stone-100">
+                            <span class="font-bold text-amber-800">A.</span> ${i.answer}
+                        </div>
+                    ` : `
+                        <div class="text-xs text-stone-400 italic mt-1">답변 준비 중입니다.</div>
+                    `}
+                </div>
+            `).join('');
+        }
+
+        function submitAnswer(id) {
+            const input = document.getElementById(`ans-input-${id}`);
+            if (!input || !input.value.trim()) return;
+
+            const inquiries = JSON.parse(localStorage.getItem('bp_inquiries') || '[]');
+            const item = inquiries.find(i => i.id === id);
+            if (item) {
+                item.answer = input.value.trim();
+                localStorage.setItem('bp_inquiries', JSON.stringify(inquiries));
+                renderAdminData();
+            }
+        }
+
+        function deleteReservation(id) {
+            if (!confirm('해당 예약을 삭제하시겠습니까?')) return;
+            let list = JSON.parse(localStorage.getItem('bp_reservations') || '[]');
+            list = list.filter(r => r.id !== id);
+            localStorage.setItem('bp_reservations', JSON.stringify(list));
+            renderAdminData();
+        }
+
+        function deleteInquiry(id) {
+            if (!confirm('해당 문의를 삭제하시겠습니까?')) return;
+            let list = JSON.parse(localStorage.getItem('bp_inquiries') || '[]');
+            list = list.filter(i => i.id !== id);
+            localStorage.setItem('bp_inquiries', JSON.stringify(list));
+            renderAdminData();
+        }
+
+        // 관리자 모드 로그인
+        function openAdminLoginModal() {
+            const pw = prompt('관리자 비밀번호를 입력해주세요:');
+            if (pw === 'J2026!' || pw === 'C2026!') {
+                switchTab('admin');
+            } else if (pw !== null) {
+                alert('비밀번호가 올바르지 않습니다.');
+            }
+        }
+
+        // 모달 제어 함수들
         function openLifeLeaseModal() { document.getElementById('lifelease-modal').classList.remove('hidden'); }
         function closeLifeLeaseModal() { document.getElementById('lifelease-modal').classList.add('hidden'); }
 
@@ -708,22 +907,3 @@
                 mBtnEn.className = 'px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-800 text-white';
             }
         }
-
-        function handleReservation(e) {
-            e.preventDefault();
-            alert('상담 예약이 정상적으로 접수되었습니다. 담당자가 빠른 시일 내에 연락드리겠습니다.');
-            e.target.reset();
-            switchTab('home');
-        }
-
-        function openAdminLoginModal() {
-            const pw = prompt('관리자 비밀번호를 입력해주세요:');
-            if (pw === 'J2026!' || pw === 'C2026!') {
-                switchTab('admin');
-            } else if (pw !== null) {
-                alert('비밀번호가 올바르지 않습니다.');
-            }
-        }
-    </script>
-</body>
-</html>
